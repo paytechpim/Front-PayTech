@@ -1,0 +1,13 @@
+<mat-nav-list role="navigation">
+  <a
+    [routerLink]="[item.path]"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    mat-list-item
+    role="button"
+    *ngFor="let item of menubar?.items"
+  >
+    <mat-icon matListItemIcon *ngIf="item.icon">{{ item.icon }}</mat-icon>
+    <h3 matListItemTitle class="self-end">{{ item.label }}</h3>
+  </a>
+</mat-nav-list>

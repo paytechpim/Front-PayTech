@@ -1,0 +1,13 @@
+<mat-form-field appearance="fill" [ngClass]="appTamanho" *ngIf="appShow">
+    <mat-label>{{ appLabel }}</mat-label>
+    <mat-select
+        [(ngModel)]="appModel"
+        (ngModelChange)="alterouModel($event)"
+        [placeholder]="appPlaceHolder"
+        [disabled]="appDisabled"
+        (selectionChange)="onChangeSelect()"
+        [formControl]="control">
+        <mat-option *ngIf="!appVazio"></mat-option>
+        <mat-option [value]="item.descricao" *ngFor="let item of appListValue">{{ item.descricao }}</mat-option>
+    </mat-select>
+</mat-form-field>

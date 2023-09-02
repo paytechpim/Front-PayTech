@@ -1,0 +1,65 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strictPropertyInitialization": false,
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": ["ES2022", "dom"],
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@env/*": ["src/environments/*"],
+
+      "@landing/*": ["src/app/modules/landing/*"],
+      "@landing": ["src/app/modules/landing/index.ts"],
+
+      "@menubar/*": ["src/app/modules/menubar/*"],
+      "@menubar": ["src/app/modules/menubar/index.ts"],
+
+      "@produtos/*": ["src/app/modules/produtos/*"],
+      "@produtos": ["src/app/modules/produtos/index.ts"],
+
+      "@colaboradores/*": ["src/app/modules/colaboradores/*"],
+      "@colaboradores": ["src/app/modules/colaboradores/index.ts"],
+
+      "@dashboard/*": ["src/app/modules/dashboard/*"],
+      "@dashboard": ["src/app/modules/dashboard/index.ts"],
+
+      "@clientes/*": ["src/app/modules/clientes/*"],
+      "@clientes": ["src/app/modules/clientes/index.ts"],
+
+      "@vendas/*": ["src/app/modules/vendas/*"],
+      "@vendas": ["src/app/modules/vendas/index.ts"],
+
+      "@financeiro/*": ["src/app/modules/financeiro/*"],
+      "@financeiro": ["src/app/modules/financeiro/index.ts"],
+
+      "@shared/*": ["src/app/shared/*"],
+      "@shared": ["src/app/shared/index.ts"],
+
+      "@core/*": ["src/app/core/*"],
+      "@core": ["src/app/core/index.ts"]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

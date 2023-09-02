@@ -1,0 +1,19 @@
+<div>
+  <mat-form-field [ngClass]="appTamanho" appearance="fill">
+    <mat-label>{{ appLabel }}</mat-label>
+    <div>
+      <!-- <button type="button" class="btn btn-light">-</button> -->
+      <input 
+        type="number" 
+        [(ngModel)]="appModel" 
+        (ngModelChange)="alterouModel($event)" 
+        autocomplete="off" 
+        matInput 
+        [placeholder]="appPlaceHolder" 
+        [value]="appValue" 
+        [disabled]="appDisabled"
+        [formControl]="control">
+      <!-- <button type="button" class="btn btn-light">+</button> -->
+    </div>
+  </mat-form-field>
+</div>

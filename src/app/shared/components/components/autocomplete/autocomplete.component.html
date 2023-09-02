@@ -1,0 +1,20 @@
+<mat-form-field appearance="fill" [ngClass]="appTamanho" *ngIf="appShow">
+    <mat-label>{{ appLabel }}</mat-label>
+    <input 
+        type="text" 
+        [placeholder]="appPlaceHolder" 
+        aria-label="Number" 
+        matInput 
+        [formControl]="control"
+        [matAutocomplete]="auto" 
+        [disabled]="appDisabled"
+        (focusout)="onLostFocus()">
+        <button mat-icon-button matSuffix (click)="control.reset()" [attr.aria-label]="'Limpar'">
+            <mat-icon>clear</mat-icon>
+          </button>
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let item of filteredOptions | async" [value]="item.descricao">
+            {{ item.descricao }}
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field>

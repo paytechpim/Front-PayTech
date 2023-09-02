@@ -1,0 +1,160 @@
+/* You can add global styles to this file, and also import other style files */
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
+@import "@flaticon/flaticon-uicons/css/all/all";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+h1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+.responsivo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-column-gap: 20px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.margin-padrao{
+    margin: 10px 10px 10px 10px!important;
+}
+
+.mat-mdc-text-field-wrapper {
+  width: 100%;
+  border-radius: 8px !important;
+}
+
+.container-tela {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-tela {
+    width: 1000px;
+    padding: 30px 60px 30px 60px;
+    margin-top: 20px;
+    border-width: 4px 4px 7px 4px;
+    background-color: rgb(224, 224, 224);
+    border-radius: 8px;
+}
+
+.app-laranja {
+    background-color: orange;
+    color: white;
+}
+
+.app-preto {
+    background-color: black;
+    color: white;
+}
+
+
+.app-azul {
+    background-color: #337ab7;
+    color: white;
+}
+
+.width-pequeno {
+  max-width: 120px !important;
+}
+
+.width-pequeno-medio {
+  max-width: 200px !important;
+}
+
+.width-medio {
+  max-width: 270px !important;
+}
+
+.width-medio-grande {
+  max-width: 450px;
+}
+
+.width-grande {
+  max-width: 900px;
+}
+
+.fadeInOpacity {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 2s;
+    transition-delay: 1s;
+}
+
+.fadeInOpacity.fade {
+    opacity: 0.5;
+    transition: opacity .15s ease-in-out;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: .5rem;
+    background-color: #fff;
+    margin: 1.25rem 0 1.25rem 0;
+    box-shadow: 0 .25rem .5rem #e6edef;
+
+    .card-head {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #edf1f7;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .card-body {
+        padding: 1rem 1.5rem; 
+    }
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+.center-box {
+  margin: 0 auto;
+  width: 400px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  
+}
+
+// .mat-mdc-raised-button.mat-primary  {
+//   --mdc-protected-button-container-color: #038DFC !important;
+//   --mdc-protected-button-label-text-color: #fff;
+// }
+// .mdc-text-field .mdc-text-field__input {
+//   caret-color: var(--mdc-theme-primary, #038DFC) !important;;
+// }
+
+// .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
+//   color: #038DFC !important;
+//   line-height: normal;
+//   pointer-events: all;
+// }
+ 
+// :root {
+//   --bs-blue: #038DFC !important;
+//   --bs-indigo: #038DFC !important;
+//   --bs-primary:  #038DFC !important;
+//   --bs-link-color:  #038DFC !important;
+//   --bs-link-hover-color:  #038DFC !important;
+// }

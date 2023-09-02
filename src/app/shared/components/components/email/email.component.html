@@ -1,0 +1,14 @@
+<mat-form-field style="border-radius: 8px;" [ngClass]="appTamanho" appearance="fill">
+    <mat-label>{{ appLabel }}</mat-label>
+    <input 
+        [(ngModel)]="appModel" 
+        (ngModelChange)="alterouModel($event)" 
+        autocomplete="off" 
+        matInput
+        [placeholder]="appPlaceHolder" 
+        [value]="appValue" 
+        [formControl]="control" 
+        [disabled]="appDisabled"
+        [required   ]="appRequired">
+    <mat-error *ngIf="control.hasError('email')">{{getErrorMessage()}}</mat-error>
+</mat-form-field>

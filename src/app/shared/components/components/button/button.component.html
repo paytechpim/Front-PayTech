@@ -1,0 +1,15 @@
+<button
+    style="font-size:medium; border-radius: 8px;"
+    mat-raised-button
+    color="primary"
+    class="margin-padrao"
+    [ngClass]="[appTamanho, appCor]"
+    [disabled]="appDisabled">
+    <div *ngIf="appPesquisando" class="spinner-color">
+        <mat-spinner diameter="26" class="spinner"></mat-spinner>
+    </div>
+    <div *ngIf="!appPesquisando">
+        <img *ngIf="appPesquisa" style="width: 6%;" src="../../../../assets/images/lupa-white.png">
+        {{ appText }}
+    </div>
+</button>

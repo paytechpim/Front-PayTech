@@ -1,0 +1,19 @@
+.container {
+  height: 100vh;
+  max-width: 100vw;
+
+  .main__content {
+    // overflow: scroll;
+    padding: 1rem;
+  }
+}
+
+.menu {
+  padding: 1rem;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    color: red;
+  }
+}

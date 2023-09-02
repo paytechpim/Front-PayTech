@@ -1,0 +1,10 @@
+.spinner-color ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: white !important;
+    width: 6%;
+}
+.spinner {
+    margin-top: 5px;
+    margin-right: auto;
+    margin-bottom: 5px;
+    margin-left: auto;
+}

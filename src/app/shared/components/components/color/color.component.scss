@@ -1,0 +1,19 @@
+img{
+    width: 30px;
+    margin: 5px;
+    padding: 2px;
+}
+
+img:hover{
+    border: 2px solid lightgray;
+    border-radius: 50%;
+}
+
+.selected-color{
+    border: 2px solid lightskyblue !important;
+    border-radius: 50%;
+}
+
+ul{
+    display: flex;
+}

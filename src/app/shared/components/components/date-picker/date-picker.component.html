@@ -1,0 +1,24 @@
+<mat-form-field style="border-radius: 8px;" [ngClass]="appTamanho" appearance="fill">
+    <mat-label>
+        {{appLabel}}
+    </mat-label>
+    <input 
+        [(ngModel)]="appModel" 
+        (ngModelChange)="alterouModel($event)" 
+        autocomplete="off" 
+        matInput 
+        [placeholder]="appPlaceHolder" 
+        [value]="appValue" 
+        [disabled]="appDisabled" 
+        [required]="appRequired"
+        [matDatepicker]="picker"
+        [formControl]="control"
+        >
+    <mat-datepicker-toggle 
+        matIconSuffix 
+        [for]="picker">
+    </mat-datepicker-toggle>
+    <mat-datepicker 
+        #picker>
+    </mat-datepicker>
+</mat-form-field>  

@@ -1,0 +1,21 @@
+/* low-list-row is a class created to reduce a mat-grid-list form density:
+/* Pay attention: it removes the mat-hint*/
+::ng-deep ._low-list-row .mat-form-field-subscript-wrapper {
+    visibility: hidden !important;
+}
+
+::ng-deep ._low-list-row .mat-form-field-wrapper {
+    padding-bottom: 0px !important;
+}
+
+::ng-deep ._low-list-row .mat-form-field-underline {
+    bottom: 0.25em !important;
+}
+
+::ng-deep ._low-list-row .mat-grid-tile {
+    height: 50px !important;
+}
+
+::ng-deep ._low-list-row {
+    height: 50px !important;
+}

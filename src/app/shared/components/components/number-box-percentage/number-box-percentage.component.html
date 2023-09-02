@@ -1,0 +1,17 @@
+<mat-form-field [ngClass]="appTamanho">
+    <mat-label>{{ appLabel }}</mat-label>
+    <input 
+        matInput 
+        type="text" 
+        [(ngModel)]="appModel" 
+        (ngModelChange)="alterouModel($event)" 
+        [placeholder]="appPlaceHolder" 
+        [value]="appValue"
+        [disabled]="appDisabled"
+        mask="percent" 
+        suffix="%"
+        [formControl]="control">
+    <mat-error>
+        Valor invalido!
+    </mat-error>
+</mat-form-field>
