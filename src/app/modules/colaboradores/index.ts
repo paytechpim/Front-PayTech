@@ -1,1 +1,1 @@
-export * from './produtos.module';
+export * from './colaboradores.module';

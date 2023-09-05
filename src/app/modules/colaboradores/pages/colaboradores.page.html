@@ -1,1 +1,191 @@
-<h1>Colaboradores</h1>
+<div class="card">
+    <div class="card-head">
+        <h2 style="margin: 0;">Cadastro de colaboradores</h2>
+    </div>
+    <div class="card-body">
+        <div class="responsivo">
+            <app-text-box
+                id="txtCodigo"
+                appLabel="Código"
+                appPlaceHolder="Insira o código"
+                appTamanho="width-pequeno-medio">
+            </app-text-box>
+        </div>
+        <div class="responsivo">
+            <app-text-box
+                id="txtNome"
+                appLabel="Nome"
+                appPlaceHolder="Insira o nome">
+            </app-text-box>
+            <app-cpf-cnpj
+                id="txtCPF"
+                appLabel="CPF"
+                appPlaceHolder="Insira o CPF">
+            </app-cpf-cnpj>
+            <app-date-picker
+                id="txtDtNascimento"
+                appLabel="Data de nascimento"
+                appPlaceHolder="Insira a data de nascimento"
+            >
+            </app-date-picker>
+            <app-text-box
+                id="txtNomeMae"
+                appLabel="Nome da mãe"
+                appPlaceHolder="Insira o nome da mãe">
+            </app-text-box>
+            <app-text-box
+                id="txtNomePai"
+                appLabel="Nome do pai"
+                appPlaceHolder="Insira o nome do pai">
+            </app-text-box>
+            <app-select-option
+                id="cbmSexo"
+                appLabel="Sexo"
+                appPlaceHolder="Selecione o sexo"
+                [appListValue]="sexoListValue"
+                [appVazio]="true"
+            >
+            </app-select-option>
+            <app-select-option
+                id="cbmEstadoCivil"
+                appLabel="Estado civil"
+                appPlaceHolder="Selecione o estado civil"
+                [appListValue]="EstadoCivilListValue"
+                [appVazio]="true"
+            >
+            </app-select-option>
+        </div>
+        <div style="border: 1px solid gray; border-radius: 8px; padding-top: 10px;padding-right: 10px; padding-left: 10px; margin-bottom: 30px;">
+            <h5 style="color: gray;">Endereço</h5>
+            <div class="responsivo">
+                <app-text-box
+                    id="txtEndereco"
+                    appLabel="Endereço"
+                    appPlaceHolder="Insira o endereço">
+                </app-text-box>
+                <app-text-box
+                    id="txtEnderecoNumero"
+                    appLabel="Número"
+                    appPlaceHolder="Insira o número">
+                </app-text-box>
+                <app-cep
+                    id="txtCep"
+                    appLabel="Cep"
+                    appPlaceHolder="Insira o cep">
+                </app-cep>
+                <app-text-box
+                    id="txtBairro"
+                    appLabel="Bairro"
+                    appPlaceHolder="Insira o bairro">
+                </app-text-box>
+                <app-text-box
+                    id="txtCidade"
+                    appLabel="Cidade"
+                    appPlaceHolder="Insira a cidade">
+                </app-text-box>
+            </div>
+        </div>
+        <div class="responsivo">
+            <app-text-box
+                id="txtNascionalidade"
+                appLabel="Nascionalidade"
+                appPlaceHolder="Insira a nascionalidade">
+            </app-text-box>
+            <app-text-box
+                id="txtEscolaridade"
+                appLabel="Escolaridade"
+                appPlaceHolder="Insira a escolaridade">
+            </app-text-box>
+            <app-select-option-multiple
+                id="cargo"
+                appLabel="Cargo: "
+                appPlaceHolder="Selecione os cargos"
+                [appListValue]="toppingList">
+            </app-select-option-multiple>
+            <app-money
+                id="txtSalario"
+                appLabel="Salario"
+                appPlaceHolder="Insira o salario"
+                >
+            </app-money>
+            <app-date-picker
+                id="dtAdmissao"
+                appLabel="Data de admissão"
+                appPlaceHolder="Insira a data de admissão"
+            >
+            </app-date-picker>
+            <app-text-box
+                id="txtRG"
+                appLabel="RG"
+                appPlaceHolder="Insira o RG">
+            </app-text-box>
+            <app-text-box
+                id="txtCNH"
+                appLabel="CNH"
+                appPlaceHolder="Insira o código da CNH">
+            </app-text-box>
+            <app-date-picker
+                id="dtEmissao"
+                appLabel="Data de emissão"
+                appPlaceHolder="Insira a data de emissão"
+            >
+            </app-date-picker>
+            <app-date-picker
+                id="dtVencimento"
+                appLabel="Data de vencimento"
+                appPlaceHolder="Insira a data de vencimento"
+            >
+            </app-date-picker>
+            <app-text-box
+                id="txtCategoriaCNH"
+                appLabel="Categoria"
+                appPlaceHolder="Insira a categoria da CNH">
+            </app-text-box>
+            <app-text-box
+                id="txtTituloEleitor"
+                appLabel="Título de eleitor"
+                appPlaceHolder="Insira o titulo de eleitor">
+            </app-text-box>
+            <app-text-box
+                id="txtZona"
+                appLabel="Zona"
+                appPlaceHolder="Insira zona">
+            </app-text-box>
+            <app-text-box
+                id="txtSeção"
+                appLabel="Seção"
+                appPlaceHolder="Insira a seção">
+            </app-text-box>
+            <app-text-box
+                id="txtReservista"
+                appLabel="Número da carteira reservista"
+                appPlaceHolder="Insira o número da carteira reservista">
+            </app-text-box>
+            <app-text-box
+                id="txtCBO"
+                appLabel="CBO"
+                appPlaceHolder="Insira o CBO">
+            </app-text-box>
+            <app-text-box
+                id="txtPIS"
+                appLabel="Número do PIS"
+                appPlaceHolder="Insira o número do PIS">
+            </app-text-box>
+            <app-text-box
+                id="txtCTPS"
+                appLabel="CTPS"
+                appPlaceHolder="Insira o CTPS">
+            </app-text-box>
+            <app-text-box
+                id="txtSerie"
+                appLabel="Série"
+                appPlaceHolder="Insira a série">
+            </app-text-box>
+        </div>
+        <div class="responsivo">
+            <button type="button" class="btn btn-success" (click)="onSalvar();">Salvar</button>
+            <button type="button" class="btn btn-light">Editar</button>
+            <button type="button" class="btn btn-danger">Excluir</button>
+        </div>
+    </div>
+</div>

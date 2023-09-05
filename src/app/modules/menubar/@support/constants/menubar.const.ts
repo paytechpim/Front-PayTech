@@ -8,29 +8,19 @@ export const MENU_BAR: MenuBar = {
       path: 'dashboard',
     },
     {
-      icon: 'people',
-      label: 'Produtos',
-      path: 'produtos',
-    },
-    {
-      icon: 'people',
+      icon: 'person_add',
       label: 'Colaboradores',
       path: 'colaboradores',
     },
     {
-      icon: 'people',
-      label: 'Clientes',
+      icon: 'library_books',
+      label: 'Folha de pagamento',
       path: 'clientes',
     },
     {
-      icon: 'people',
-      label: 'Vendas',
+      icon: 'account_balance',
+      label: 'Dados da empresa',
       path: 'vendas',
-    },
-    {
-      icon: 'people',
-      label: 'Financeiro',
-      path: 'financeiro',
     },
   ],
 };
