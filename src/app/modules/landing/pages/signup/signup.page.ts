@@ -15,7 +15,7 @@ export class SignupPage {
   descricaoModalMensagemErro: string = "";
   carregando: boolean = false;
   exibirModalDeErro: boolean = false;
-  telaPrincipal = "dashboard";
+  telaPrincipal = "admin";
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -28,16 +28,18 @@ export class SignupPage {
   }
 
   open(){
-      this.loginAutenticaModel = new LoginAutenticaModel(this.usuario, this.senha);
+    this.router.navigateByUrl('/' + this.telaPrincipal);
 
-      this.carregando = true;
-      this.authService.autenticar(this.loginAutenticaModel).subscribe(retorno => {
-        debugger;
-        this.processaRetorno(retorno);
-      }, retornoError => {
-          debugger;
-          this.processaRetorno(retornoError);
-      });
+      // this.loginAutenticaModel = new LoginAutenticaModel(this.usuario, this.senha);
+
+      // this.carregando = true;
+      // this.authService.autenticar(this.loginAutenticaModel).subscribe(retorno => {
+      //   debugger;
+      //   this.processaRetorno(retorno);
+      // }, retornoError => {
+      //     debugger;
+      //     this.processaRetorno(retornoError);
+      // });
   }
 
   private processaRetorno(retorno: any) {

@@ -10,6 +10,9 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: linear-gradient(to bottom, #FF6000, #ffba80);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 h1 {
     margin-top: 50px;
@@ -38,7 +41,7 @@ mat-form-field{
 
 .mat-mdc-text-field-wrapper {
   width: 100%;
-  border-radius: 8px !important;
+  border-radius: 12px !important;
 }
 
 .container-tela {
@@ -111,7 +114,7 @@ mat-form-field{
     border-radius: .5rem;
     background-color: #fff;
     margin: 1.25rem 0 1.25rem 0;
-    box-shadow: 0 .25rem .5rem #e6edef;
+    // box-shadow: 0 .25rem .5rem #e6edef;
 
     .card-head {
         padding: 1rem 1.5rem;
@@ -137,24 +140,25 @@ mat-form-field{
   
 }
 
-// .mat-mdc-raised-button.mat-primary  {
-//   --mdc-protected-button-container-color: #038DFC !important;
-//   --mdc-protected-button-label-text-color: #fff;
-// }
-// .mdc-text-field .mdc-text-field__input {
-//   caret-color: var(--mdc-theme-primary, #038DFC) !important;;
-// }
+.mat-mdc-raised-button.mat-primary  {
+  --mdc-protected-button-container-color: #fca503 !important;
+  --mdc-protected-button-label-text-color: #fff;
+}
+.mdc-text-field .mdc-text-field__input {
+  caret-color: var(--mdc-theme-primary, #fca503) !important;;
+}
 
-// .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
-//   color: #038DFC !important;
-//   line-height: normal;
-//   pointer-events: all;
-// }
+.mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
+  color: #fca503 !important;
+  line-height: normal;
+  pointer-events: all;
+}
  
-// :root {
-//   --bs-blue: #038DFC !important;
-//   --bs-indigo: #038DFC !important;
-//   --bs-primary:  #038DFC !important;
-//   --bs-link-color:  #038DFC !important;
-//   --bs-link-hover-color:  #038DFC !important;
-// }
+:root {
+  --bs-blue: #fca503 !important;
+  --bs-indigo: #fca503 !important;
+  --bs-primary:  #fca503 !important;
+  --bs-link-color:  #fca503 !important;
+  --bs-link-hover-color:  #fca503 !important;
+  --mdc-outlined-text-field-focus-outline-color: #ff8000 !important;
+}

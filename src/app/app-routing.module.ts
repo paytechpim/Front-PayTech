@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreComponent } from '@core/components';
 import { ADMIN_ROUTE_PREFIX } from './core/@support/constants/core.const';
+import { ColaboradoresPage } from './modules/colaboradores/pages/produto.page';
+import { ProdutoPage } from './modules/produtos/pages/produto.page';
 
 const routes: Routes = [
   {
@@ -12,6 +14,10 @@ const routes: Routes = [
     path: ADMIN_ROUTE_PREFIX,
     component: CoreComponent,
     children: [
+      {
+        path: 'teste',
+        component: ProdutoPage,
+      },
       {
         path: 'dashboard',
         loadChildren: () => import('@dashboard').then((m) => m.DashboardModule),
