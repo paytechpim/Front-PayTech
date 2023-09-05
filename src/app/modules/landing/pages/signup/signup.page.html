@@ -1,1 +1,50 @@
-<h1>Signup</h1>
+<div style="position: fixed;
+top: 50%;
+/* left: 50%; */
+transform: translate(32%, -50%);">
+  <div style="display: flex; justify-content: space-between;">
+    <div class="card card-container col-md-12" style="margin-right: 25%;">
+      <img
+        id="profile-img"
+        width="60%" src="../../../assets/logo/logo-nome.jpg"
+        class="profile-img-card center"/>
+        <form style="display: flex; justify-content: center;">
+        <div style="padding-top: 30px; display: flex; flex-direction: column;">
+          <app-text-box
+          id="txtUsuario"
+                [(appModel)]="usuario"
+                appLabel="Usuário"
+                appValue=""
+                appPlaceHolder="Digite seu usuário"
+                appTamanho="width-medio">
+            </app-text-box>
+            <app-text-box-password
+                id="txtSenha"
+                [(appModel)]="senha"
+                appLabel="Senha"
+                appPlaceHolder="Digite sua senha"
+                appTamanho="width-medio">
+              </app-text-box-password>
+              <app-label-alert
+              appTamanho="width-medio"
+              ></app-label-alert>
+              <a href="#" style="margin: -20px 0 20px 5px;">Recuperar senha</a>
+              <app-button
+                id="btnEntrar"
+                (click)="open()"
+                appTamanho="width-medio"
+                appText="Entrar"> 
+            </app-button>
+        </div>
+      </form>
+    </div>
+    <div>
+      <h2 style="text-align: initial;">Tenha mais eficiência no gerenciamento</h2>
+      <img
+      id="profile-img"
+      width="500px" src="../../../assets/logo/img-login.jpg"
+        class="profile-img-card center"/>
+        <h2 style="text-align: end;">da sua folha de pagamento.</h2>
+      </div>
+  </div>
+</div>
