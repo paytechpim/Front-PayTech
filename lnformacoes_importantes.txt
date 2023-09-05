@@ -1,0 +1,16 @@
+Exemplo side bar para menu
+https://www.codehim.com/demo/css-sidebar-navigation-menu-with-icons/#
+Adicionar um funcionamento de menu e subMenu
+https://www.youtube.com/watch?v=NbYxOZkpGlE
+
+double router outlet: usar para renderizar multiplas rotas na tela
+https://www.youtube.com/watch?v=9fH09nJGm-U
+
+usando form group no component
+https://youtu.be/psojgR7joWk
+
+https://primeng.org/autofocus
+
+
+deploy angular in azure
+https://www.youtube.com/watch?v=8X-PVOKfkMw&t=225s&ab_channel=Wai%27sDiskdrive

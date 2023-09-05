@@ -1,5 +1,5 @@
 .container {
-  height: 100vh;
+  height: calc(100vh - var(--mat-toolbar-standard-height));
   max-width: 100vw;
 
   .main__content {
@@ -11,6 +11,13 @@
 .menu {
   padding: 1rem;
 
+  .ordena-menu{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+ 
   &__item {
     display: flex;
     align-items: center;

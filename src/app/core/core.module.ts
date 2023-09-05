@@ -11,6 +11,7 @@ import { provideEnvironmentNgxMask, provideNgxMask } from 'ngx-mask';
 import { AuthGuard } from './authentication/auth.guard';
 import { AuthService } from './authentication/auth.service';
 import { CoreComponent } from './components/core/core.component';
+import { MatListModule } from '@angular/material/list';
 
 // TODO: pegar de auth folder
 export function tokenGetter() {
@@ -24,6 +25,7 @@ export function tokenGetter() {
     MatIconModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatListModule,
     MenubarModule,
     RouterModule,
     JwtModule.forRoot({

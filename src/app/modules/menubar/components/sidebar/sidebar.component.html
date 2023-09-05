@@ -7,7 +7,7 @@
     role="button"
     *ngFor="let item of menubar?.items"
   >
-    <mat-icon matListItemIcon *ngIf="item.icon">{{ item.icon }}</mat-icon>
-    <h3 matListItemTitle class="self-end">{{ item.label }}</h3>
+    <mat-icon style="margin: 0 16px 0 16px;" matListItemIcon *ngIf="item.icon">{{ item.icon }}</mat-icon>
+    <h3 style="margin: 0;" matListItemTitle class="self-end">{{ item.label }}</h3>
   </a>
 </mat-nav-list>

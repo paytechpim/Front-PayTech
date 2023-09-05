@@ -10,7 +10,21 @@
 
 <mat-drawer-container class="container">
   <mat-drawer mode="side" [opened]="opened" class="menu">
-    <app-sidebar></app-sidebar>
+    <div class="ordena-menu">
+      <app-sidebar></app-sidebar>
+      <mat-nav-list role="navigation">
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          mat-list-item
+          role="button"
+        >
+          <mat-icon style="margin: 0 16px 0 16px;" matListItemIcon>exit_to_app</mat-icon>
+          <h3 style="margin: 0;" matListItemTitle class="self-end">Sair</h3>
+        </a>
+      </mat-nav-list>
+    </div>
   </mat-drawer>
 
   <mat-drawer-content>
