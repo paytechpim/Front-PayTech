@@ -4,6 +4,7 @@ import { CoreComponent } from '@core/components';
 import { ADMIN_ROUTE_PREFIX } from './core/@support/constants/core.const';
 import { ColaboradoresPage } from './modules/colaboradores/pages/colaboradores.page';
 import { ProdutoPage } from './modules/produtos/pages/produto.page';
+import { AuthGuard } from './core/authentication/auth.guard';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
   },
   {
     path: ADMIN_ROUTE_PREFIX,
+    canActivate: [AuthGuard],
     component: CoreComponent,
     children: [
       {
@@ -46,6 +48,7 @@ const routes: Routes = [
       },
     ],
   },
+  { path: '**', redirectTo: '' },
   {
     path: '',
     pathMatch: 'full',

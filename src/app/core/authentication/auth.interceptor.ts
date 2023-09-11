@@ -24,10 +24,8 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const accessToken = localStorage.getItem('access_token');
-    const refreshToken = localStorage.getItem('conf_gestao_refresh_token');
+    const refreshToken = localStorage.getItem('refresh_token');
     const accessTokenEstaExpirado = this.jwtHelper.isTokenExpired(accessToken);
-    const refreshTokenEstaExpirado =
-      this.jwtHelper.isTokenExpired(refreshToken);
 
     if (this.accessTokenInvalido(accessToken)) {
       this.redirecionaSiteInstitucional();
@@ -37,7 +35,6 @@ export class AuthInterceptor implements HttpInterceptor {
       this.refreshTokenInvalido(
         refreshToken,
         accessTokenEstaExpirado,
-        refreshTokenEstaExpirado
       )
     ) {
       this.redirecionaSiteInstitucional();
@@ -45,15 +42,12 @@ export class AuthInterceptor implements HttpInterceptor {
 
     if (accessTokenEstaExpirado) {
       return this.authService
-        .atualizaAutenticacao(refreshToken, accessToken)
+        .atualizaAutenticacao("" + accessToken,"" + refreshToken)
         .pipe(
           first(),
-          mergeMap((response) => {
-            localStorage.setItem('access_token', response['access_token']);
-            localStorage.setItem(
-              'conf_gestao_refresh_token',
-              response['refresh_token']
-            );
+          mergeMap((response: any) => {
+            localStorage.setItem('access_token', response.token);
+            localStorage.setItem('refresh_token',response.refreshToken);
             req = this.montaRequest(req);
             return next.handle(req);
           }),
@@ -77,12 +71,10 @@ export class AuthInterceptor implements HttpInterceptor {
 
   private refreshTokenInvalido(
     refreshToken: string | null,
-    refreshTokenEstaExpirado: boolean,
     accessTokenEstaExpirado: boolean
   ): boolean {
     if (
-      (!refreshToken && accessTokenEstaExpirado) ||
-      (refreshTokenEstaExpirado && accessTokenEstaExpirado)
+      (!refreshToken && accessTokenEstaExpirado)
     ) {
       return true;
     }
@@ -107,9 +99,11 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   private adicionarTokenAoHeader(request: HttpRequest<any>) {
-    let bearerToken = isNullOrUndefined(localStorage.access_token)
+    const accessToken = localStorage.getItem('access_token');
+    const refreshToken = localStorage.getItem('refresh_token');
+    let bearerToken = isNullOrUndefined(accessToken)
       ? ''
-      : localStorage.access_token;
+      : accessToken;
 
     return request.clone({
       setHeaders: {

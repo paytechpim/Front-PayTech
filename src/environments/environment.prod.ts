@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   // api base
-  api: 'https://odontoara-system.azurewebsites.net/v1/',
+  api: 'https://paytech-api.azurewebsites.net/',
 };

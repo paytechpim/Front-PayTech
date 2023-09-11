@@ -1,9 +1,9 @@
 import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginAutenticaModel } from '@app/models/login-autentica.model';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
-import { LoginAutenticaModel } from './login-autentica.model';
 
 @Injectable({
   providedIn: 'root',
@@ -19,68 +19,52 @@ export class AuthService {
   }
 
   redirecionaSiteInstitucional() {
-    window.location.href = environment.api;
+    this.router.navigateByUrl('/');
     //precisa mandar para o link do site institucional
   }
 
-  atualizaAutenticacao(refreshToken: string, accessToken: string) {
-    const objrefresh =
-      'grant_type=refresh_token&client_id=fature_client&refresh_token=' +
-      refreshToken;
+  atualizaAutenticacao(accessToken: string, refreshToken: string) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
     });
 
-    return this.http.post(
-      environment.api,
-      { data: objrefresh },
-      { headers: headers }
-    );
+    const URL = environment.api + 'api/Login/refresh?token' + accessToken + "&refreshToken=" + refreshToken;
+    return this.http.post(URL, {
+      headers: headers,
+    });
   }
 
   autenticar(loginAutenticaModel: LoginAutenticaModel) {
     const login = {
-      login: loginAutenticaModel.username,
-      senha: loginAutenticaModel.password,
+      nome_Usuario: loginAutenticaModel.nome_Usuario,
+      senha: loginAutenticaModel.senha,
     };
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    return this.http.post(environment.api + 'login', login, {
+    return this.http.post(environment.api + 'api/Login/autenticar', login, {
       headers: headers,
     });
   }
 
   autenticado() {
-    return true;
-    // const accessToken = localStorage.getItem('access_token');
-    // //const refreshToken = localStorage.getItem('conf_gestao_refresh_token');
-    // const accessTokenEstaExpirado =  this.jwtHelper.isTokenExpired(accessToken);
-    // //const refreshTokenEstaExpirado = this.jwtHelper.isTokenExpired(refreshToken);
+    const accessToken = localStorage.getItem('access_token');
+    const refreshToken = localStorage.getItem('refresh_token');
+    const accessTokenEstaExpirado =  this.jwtHelper.isTokenExpired(accessToken);
 
-    // //if (accessTokenEstaExpirado || refreshTokenEstaExpirado) {
-    // if (accessTokenEstaExpirado) {
-    //     return false;
-    // } else {
-    //     return true;
-    // }
+    return !accessTokenEstaExpirado;
   }
-
-  autenticaUsuario() {
-    localStorage.setItem('autenticado', 'true');
-  }
-
-  // sair() {
-  //     var headers = new HttpHeaders({ 'Authorization': `Bearer ${localStorage.getItem('access_token')}`});
-  //     return this.http.delete(environment.urlAutenticacao, {headers: headers});
-  // }
 
   sair() {
     localStorage.removeItem('access_token');
-    localStorage.removeItem('autenticado');
-    localStorage.removeItem('username');
-    localStorage.removeItem('user_id');
-    localStorage.removeItem('user_role');
+    localStorage.removeItem('refresh_token');
+    localStorage.removeItem('tipo_usuario');
+    localStorage.removeItem('id_login');
+    localStorage.removeItem('id_funcionario');
+    localStorage.removeItem('nome_usuario');
+
+    // var headers = new HttpHeaders({ 'Authorization': `Bearer ${localStorage.getItem('access_token')}`});
+    // return this.http.delete(environment.api, {headers: headers});
   }
 
   limpaLocalStorage() {
@@ -91,9 +75,5 @@ export class AuthService {
     const autenticado = localStorage.getItem('autenticado') == 'true';
 
     return autenticado;
-  }
-
-  recuperaModulo() {
-    return localStorage.getItem('conf_gestao_modulo');
   }
 }

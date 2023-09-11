@@ -1,9 +1,10 @@
-export class LoginAutenticaModel {    
-    username: string;
-    password: string;
-
-    constructor(usuario: string, senha: string) {
-        this.username = usuario;
-        this.password = senha;
+export class LoginAutenticaModel {
+    nome_Usuario: string;
+    senha: string;
+  
+    constructor(nome_Usuario: string, senha: string) {
+      this.nome_Usuario = nome_Usuario;
+      this.senha = senha;
     }
-}
+  }
+  

@@ -10,12 +10,8 @@ import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  private modulos: Array<string>;
 
   constructor(private _router: Router, private authService: AuthService) {
-    this.modulos = new Array<string>();
-    this.modulos.push('cadastroGestor');
-    this.modulos.push('cadastroGrupoPrestador');
   }
 
   canActivate(
@@ -30,29 +26,10 @@ export class AuthGuard implements CanActivate {
     return true;
   }
 
-  private permiteAcessarModulo(caminhoModulo: string) {
-    if (
-      caminhoModulo == 'cadastro-gestor' &&
-      this.modulos[0] == this.authService.recuperaModulo()
-    ) {
-      return true;
-    }
-    if (
-      caminhoModulo == 'grupo-prestador' &&
-      this.modulos[1] == this.authService.recuperaModulo()
-    ) {
+  private estaAutenticado() {
+    if (this.authService.autenticado()) {
       return true;
     }
     return false;
-  }
-
-  private estaAutenticado() {
-    return true;
-
-    // TODO: remover esse comentário
-    // if (this.authService.autenticado()) {
-    //   return true;
-    // }
-    // return false;
   }
 }

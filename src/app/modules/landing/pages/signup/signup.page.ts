@@ -12,7 +12,6 @@ export class SignupPage {
   senha: string = "";
   loginAutenticaModel: LoginAutenticaModel;
   tituloModalMensagemErro: string = "";
-  descricaoModalMensagemErro: string = "";
   carregando: boolean = false;
   exibirModalDeErro: boolean = false;
   telaPrincipal = "admin";
@@ -20,63 +19,53 @@ export class SignupPage {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    // if(this.authService.autenticado()){
-    //   this.router.navigateByUrl('/' + this.telaPrincipal);
-    // }
-
-    this.tituloModalMensagemErro = "Usuário ou senha invalido";
+    if(this.authService.autenticado()){
+      this.router.navigateByUrl('/' + this.telaPrincipal);
+    }
   }
 
   open(){
-    this.router.navigateByUrl('/' + this.telaPrincipal);
+    this.loginAutenticaModel = new LoginAutenticaModel(this.usuario, this.senha);
 
-      // this.loginAutenticaModel = new LoginAutenticaModel(this.usuario, this.senha);
-
-      // this.carregando = true;
-      // this.authService.autenticar(this.loginAutenticaModel).subscribe(retorno => {
-      //   debugger;
-      //   this.processaRetorno(retorno);
-      // }, retornoError => {
-      //     debugger;
-      //     this.processaRetorno(retornoError);
-      // });
-  }
-
-  private processaRetorno(retorno: any) {
-    if (retorno.isValido) {
+    this.carregando = true;
+    this.authService.autenticar(this.loginAutenticaModel).subscribe(retorno => {
       this.sucesso(retorno);
-    } else {
-      this.falha(retorno);
-    }
+    }, retornoError => {
+      this.falha(retornoError);
+    });
   }
 
   private sucesso(retorno: any) {
     this.obtemDadosRetorno(retorno);
-    //this.authService.autenticaUsuario();
     this.router.navigateByUrl('/' + this.telaPrincipal);
   }
 
   private obtemDadosRetorno(retorno: any) {
-    localStorage.setItem('access_token', retorno.entity);
-    
+    localStorage.setItem('access_token', retorno.token);
+    localStorage.setItem('refresh_token', retorno.refreshToken);
+    localStorage.setItem('tipo_usuario', retorno.user.tipo);
+    localStorage.setItem('id_login', retorno.user.id);
+    localStorage.setItem('id_funcionario', retorno.user.id_Funcionario);
+    localStorage.setItem('nome_usuario', retorno.user.nome_Usuario);
   }
 
   private falha(retorno: any) {
-    this.selecionaTituloErro(retorno.status);
+    this.selecionaTituloErro(retorno);
     this.mostrarModalDeErro();
     this.carregando = false;
   }
 
-  private selecionaTituloErro(status: number) {
-    if (status === 0) {
+  private selecionaTituloErro(retorno: any) {
+    if (retorno.status === 0) {
         this.tituloModalMensagemErro = 'Falha de conexão. Tente novamente mais tarde';
-        this.descricaoModalMensagemErro = '';
-    } else if (status === 500) {
+    } else if (retorno.status === 500) {
         this.tituloModalMensagemErro = 'Ocorreu um erro. Tente novamente mais tarde';
-        this.descricaoModalMensagemErro = '';
     } else {
+      if(retorno.error.message.toString().length > 0){
+        this.tituloModalMensagemErro = retorno.error.message;
+      }else{
         this.tituloModalMensagemErro = 'Usuário ou senha inválidos';
-        this.descricaoModalMensagemErro = 'Credencias inválidas';
+      }
     }
   }
 

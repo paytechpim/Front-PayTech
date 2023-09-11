@@ -23,10 +23,11 @@
                   appPlaceHolder="Digite sua senha"
                   appTamanho="width-medio">
                 </app-text-box-password>
+                <a href="#" style="margin: -20px 0 5px 5px;">Recuperar senha.</a>
                 <app-label-alert
-                appTamanho="width-medio"
+                  appTamanho="width-medio"
+                  [appLabel]="tituloModalMensagemErro"
                 ></app-label-alert>
-                <a href="#" style="margin: -20px 0 20px 5px;">Recuperar senha.</a>
                 <app-button
                   id="btnEntrar"
                   (click)="open()"
