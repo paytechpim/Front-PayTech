@@ -25,6 +25,11 @@ export class SignupPage {
   }
 
   open(){
+    if (this.usuario == "" || this.senha == ""){
+      this.selecionaTituloErro("");
+      return;
+    }
+
     this.loginAutenticaModel = new LoginAutenticaModel(this.usuario, this.senha);
 
     this.carregando = true;
@@ -61,7 +66,7 @@ export class SignupPage {
     } else if (retorno.status === 500) {
         this.tituloModalMensagemErro = 'Ocorreu um erro. Tente novamente mais tarde';
     } else {
-      if(retorno.error.message.toString().length > 0){
+      if(retorno?.error?.message?.toString().length > 0){
         this.tituloModalMensagemErro = retorno.error.message;
       }else{
         this.tituloModalMensagemErro = 'Usuário ou senha inválidos';
