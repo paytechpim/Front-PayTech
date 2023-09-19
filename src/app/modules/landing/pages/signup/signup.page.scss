@@ -26,3 +26,14 @@
     flex-direction: column;
     align-items: center;
 }
+
+@media screen and (max-width: 850px) {
+    .hud_login {
+        width: 20px;
+        pointer-events: none;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+  }
