@@ -32,6 +32,7 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TextAreaComponent } from './text-area/text-area.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { HudDashboardComponent } from './hud-dashboard/hud-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
         AutocompleteComponent,
         TextAreaComponent,
         ResetPasswordComponent,
+        HudDashboardComponent,
     ],
   imports: [
     CommonModule, 
