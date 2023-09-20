@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from '@app/core/authentication/auth.service';
 import { LoginAutenticaModel } from '@app/models/login-autentica.model';
+import { ResetPasswordComponent } from '@app/shared/components/components/reset-password/reset-password.component';
 
 @Component({
   templateUrl: './signup.page.html',
@@ -16,7 +18,7 @@ export class SignupPage {
   exibirModalDeErro: boolean = false;
   telaPrincipal = "admin";
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
     if(this.authService.autenticado()){
@@ -40,6 +42,9 @@ export class SignupPage {
     });
   }
 
+  resetPassword(){
+    const dialogRef = this.dialog.open(ResetPasswordComponent);
+  }
   private sucesso(retorno: any) {
     this.obtemDadosRetorno(retorno);
     this.router.navigateByUrl('/' + this.telaPrincipal);
