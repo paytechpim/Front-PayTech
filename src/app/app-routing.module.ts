@@ -13,7 +13,6 @@ const routes: Routes = [
   },
   {
     path: ADMIN_ROUTE_PREFIX,
-    canActivate: [AuthGuard],
     component: CoreComponent,
     children: [
       {

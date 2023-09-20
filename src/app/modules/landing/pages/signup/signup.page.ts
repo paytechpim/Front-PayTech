@@ -27,19 +27,20 @@ export class SignupPage {
   }
 
   open(){
-    if (this.usuario == "" || this.senha == ""){
-      this.selecionaTituloErro("");
-      return;
-    }
+    this.router.navigateByUrl('/' + this.telaPrincipal);
+    // if (this.usuario == "" || this.senha == ""){
+    //   this.selecionaTituloErro("");
+    //   return;
+    // }
 
-    this.loginAutenticaModel = new LoginAutenticaModel(this.usuario, this.senha);
+    // this.loginAutenticaModel = new LoginAutenticaModel(this.usuario, this.senha);
 
-    this.carregando = true;
-    this.authService.autenticar(this.loginAutenticaModel).subscribe(retorno => {
-      this.sucesso(retorno);
-    }, retornoError => {
-      this.falha(retornoError);
-    });
+    // this.carregando = true;
+    // this.authService.autenticar(this.loginAutenticaModel).subscribe(retorno => {
+    //   this.sucesso(retorno);
+    // }, retornoError => {
+    //   this.falha(retornoError);
+    // });
   }
 
   resetPassword(){
