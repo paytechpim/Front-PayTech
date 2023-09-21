@@ -8,10 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LabelComponent } from './label-alert/label-alert.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NumberBoxComponent } from './number-box/number-box.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { BodyComponent } from './body/body.component';
 import { RouterModule } from '@angular/router';
-import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
@@ -40,9 +38,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
         ButtonComponent,
         LabelComponent,
         NumberBoxComponent,
-        SidenavComponent,
         BodyComponent,
-        SublevelMenuComponent,
         SelectOptionMultipleComponent,
         NumberBoxPercentageComponent,
         ProcuraFuncionarioComponent,
@@ -76,9 +72,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     ButtonComponent,
     LabelComponent,
     NumberBoxComponent,
-    SidenavComponent,
     BodyComponent,
-    SublevelMenuComponent,
     SelectOptionMultipleComponent,
     NumberBoxPercentageComponent,
     ProcuraFuncionarioComponent,
