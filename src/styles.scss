@@ -45,6 +45,35 @@ mat-form-field{
   border-radius: 12px !important;
 }
 
+// Style page dashboard
+.hud_dashboard {
+  .h1_hud {
+    text-align: center;
+  }
+  .header_hud{
+    display: flex;
+    justify-content: center;
+  }
+  .body_hud{
+    display: flex;
+    justify-content: center;
+  }
+  .info_hud{
+    background-color: #FF6000;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    padding: 10px;
+  }
+  .info_company{
+    align-items: center;
+    flex-direction: row;
+    color: white;
+  }
+
+}
+
 .container-tela {
     display: flex;
     flex-direction: row;
