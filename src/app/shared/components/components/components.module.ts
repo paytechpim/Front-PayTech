@@ -8,10 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LabelComponent } from './label-alert/label-alert.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NumberBoxComponent } from './number-box/number-box.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { BodyComponent } from './body/body.component';
 import { RouterModule } from '@angular/router';
-import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
@@ -31,6 +29,8 @@ import { ColorComponent } from './color/color.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TextAreaComponent } from './text-area/text-area.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { HudDashboardComponent } from './hud-dashboard/hud-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -39,9 +39,7 @@ import { TextAreaComponent } from './text-area/text-area.component';
         ButtonComponent,
         LabelComponent,
         NumberBoxComponent,
-        SidenavComponent,
         BodyComponent,
-        SublevelMenuComponent,
         SelectOptionMultipleComponent,
         NumberBoxPercentageComponent,
         ProcuraFuncionarioComponent,
@@ -56,6 +54,8 @@ import { TextAreaComponent } from './text-area/text-area.component';
         ColorComponent,
         AutocompleteComponent,
         TextAreaComponent,
+        ResetPasswordComponent,
+        HudDashboardComponent,
     ],
   imports: [
     CommonModule, 
@@ -74,9 +74,7 @@ import { TextAreaComponent } from './text-area/text-area.component';
     ButtonComponent,
     LabelComponent,
     NumberBoxComponent,
-    SidenavComponent,
     BodyComponent,
-    SublevelMenuComponent,
     SelectOptionMultipleComponent,
     NumberBoxPercentageComponent,
     ProcuraFuncionarioComponent,
