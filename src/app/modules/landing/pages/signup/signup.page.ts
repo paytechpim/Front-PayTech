@@ -16,7 +16,7 @@ export class SignupPage {
   tituloModalMensagemErro: string = "";
   carregando: boolean = false;
   exibirModalDeErro: boolean = false;
-  telaPrincipal = "admin";
+  telaPrincipal = "admin/dashboard";
 
   constructor(private authService: AuthService, private router: Router, public dialog: MatDialog) { }
 
