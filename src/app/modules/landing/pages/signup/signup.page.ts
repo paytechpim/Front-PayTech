@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from '@app/core/authentication/auth.service';
 import { LoginAutenticaModel } from '@app/models/login-autentica.model';
-import { ResetPasswordComponent } from '@app/shared/components/components/reset-password/reset-password.component';
+import { ResetPasswordComponent } from '@app/shared/components/reset-password/reset-password.component';
 
 @Component({
   templateUrl: './signup.page.html',

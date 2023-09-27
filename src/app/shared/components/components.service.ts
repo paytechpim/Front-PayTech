@@ -19,7 +19,7 @@ export class ComponentsService {
   }
 
   public buscarExemplo(textoPesquisa: string): Observable<any>{
-    var url =  environment.urlBase + "chamada/funcao?textoPesquisa=" + textoPesquisa;
+    var url =  environment.api + "chamada/funcao?textoPesquisa=" + textoPesquisa;
     return this.http.get(url);
   }
 }

@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreComponent } from '@core/components';
 import { ADMIN_ROUTE_PREFIX } from './core/@support/constants/core.const';
-import { ColaboradoresPage } from './modules/colaboradores/pages/colaboradores.page';
-import { ProdutoPage } from './modules/produtos/pages/produto.page';
 import { AuthGuard } from './core/authentication/auth.guard';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ColaboradoresComponent } from './pages/colaboradores/colaboradores.component';
+import { FolhaPagamentoComponent } from './pages/folha-pagamento/folha-pagamento.component';
+import { DadosEmpresaComponent } from './pages/dados-empresa/dados-empresa.component';
 
 const routes: Routes = [
   {
@@ -17,34 +19,20 @@ const routes: Routes = [
     component: CoreComponent,
     children: [
       {
-        path: 'teste',
-        component: ProdutoPage,
-      },
-      {
         path: 'dashboard',
-        loadChildren: () => import('@dashboard').then((m) => m.DashboardModule),
-      },
-      {
-        path: 'produtos',
-        loadChildren: () => import('@produtos').then((m) => m.ProdutosModule),
+        component: DashboardComponent,
       },
       {
         path: 'colaboradores',
-        loadChildren: () =>
-          import('@colaboradores').then((m) => m.ColaboradoresModule),
+        component: ColaboradoresComponent,
       },
       {
-        path: 'clientes',
-        loadChildren: () => import('@clientes').then((m) => m.ClientesModule),
+        path: 'folha-pagamento',
+        component: FolhaPagamentoComponent,
       },
       {
-        path: 'vendas',
-        loadChildren: () => import('@vendas').then((m) => m.VendasModule),
-      },
-      {
-        path: 'financeiro',
-        loadChildren: () =>
-          import('@financeiro').then((m) => m.FinanceiroModule),
+        path: 'dados-empresa',
+        component: DadosEmpresaComponent,
       },
     ],
   },

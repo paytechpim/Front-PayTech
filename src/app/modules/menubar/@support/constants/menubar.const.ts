@@ -15,12 +15,12 @@ export const MENU_BAR: MenuBar = {
     {
       icon: 'library_books',
       label: 'Folha de pagamento',
-      path: 'clientes',
+      path: 'folha-pagamento',
     },
     {
       icon: 'account_balance',
       label: 'Dados da empresa',
-      path: 'vendas',
+      path: 'dados-empresa',
     },
   ],
 };

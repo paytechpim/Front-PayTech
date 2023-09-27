@@ -4,24 +4,25 @@ import { SelectOptionModel } from '@app/models/select-option.models';
 import { UsuarioModel } from '@app/models/usuario';
 
 @Component({
-  templateUrl: './colaboradores.page.html',
-  styleUrls: ['./colaboradores.page.scss'],
+  selector: 'app-colaboradores',
+  templateUrl: './colaboradores.component.html',
+  styleUrls: ['./colaboradores.component.scss']
 })
-export class ColaboradoresPage {
+export class ColaboradoresComponent {
   public usuario: UsuarioModel;
   public toppingList: string[] = ['Gerente', 'RH', 'Vendedor', 'Esoque'];
   public usuarios: UsuarioModel[] = [];
 
   sexoListValue: SelectOptionModel[] = [
-    {codigo: 1, descricao: 'Masculino'},
-    {codigo: 2, descricao: 'Feminino'},
-    {codigo: 3, descricao: 'Outros'},
+    { codigo: 1, descricao: 'Masculino' },
+    { codigo: 2, descricao: 'Feminino' },
+    { codigo: 3, descricao: 'Outros' },
   ];
 
   EstadoCivilListValue: SelectOptionModel[] = [
-    {codigo: 1, descricao: 'Solteiro(a)'},
-    {codigo: 2, descricao: 'Casado(a)'},
-    {codigo: 3, descricao: 'Outros'},
+    { codigo: 1, descricao: 'Solteiro(a)' },
+    { codigo: 2, descricao: 'Casado(a)' },
+    { codigo: 3, descricao: 'Outros' },
   ];
 
   constructor(private _snackBar: MatSnackBar) {
@@ -31,28 +32,28 @@ export class ColaboradoresPage {
   ngOnInit(): void {
   }
 
-  public onLimparDados(){
+  public onLimparDados() {
     this.usuario = new UsuarioModel();
   }
 
-  public onBuscar(){
+  public onBuscar() {
     var user = this.usuarios.find(d => d.codigo === this.usuario.codigo);
-    if(user != undefined && user.codigo > 0){
+    if (user != undefined && user.codigo > 0) {
       this.usuario = user;
-    }else{
+    } else {
       this.usuario.codigo = 0;
       this._snackBar.open('Colaborador(a) não encontro(a)!', 'ok', {
         duration: 3000,
-      });  
+      });
     }
   }
 
-  public onSalvar(){
+  public onSalvar() {
     console.log(this.usuario);
-    if(this.usuario.nome == undefined && this.usuario.sobrenome == undefined){
+    if (this.usuario.nome == undefined && this.usuario.sobrenome == undefined) {
       this._snackBar.open('Preencha todos os campos obrigatórios!', 'ok', {
         duration: 3000,
-      });  
+      });
       return;
     }
 
@@ -63,15 +64,14 @@ export class ColaboradoresPage {
       duration: 3000,
     });
   }
-  
-  public onExcluir(){
-    if(this.usuario.codigo > 0){
-        this.usuarios.splice(this.usuarios.findIndex(d => d.codigo === this.usuario.codigo), 1);
+
+  public onExcluir() {
+    if (this.usuario.codigo > 0) {
+      this.usuarios.splice(this.usuarios.findIndex(d => d.codigo === this.usuario.codigo), 1);
     }
   }
 
   public onEditar() {
 
   }
-
 }
