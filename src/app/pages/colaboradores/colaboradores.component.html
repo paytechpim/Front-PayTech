@@ -87,13 +87,20 @@
                 appPlaceHolder="Insira a escolaridade"
                 [control]="colaborador.controls.escolaridade">
             </app-text-box>
-            <app-select-option-multiple
+            <app-select-option
                 id="cargo"
                 appLabel="Cargo: "
-                appPlaceHolder="Selecione os cargos"
-                [appListValue]="toppingList"
-                >
-            </app-select-option-multiple>
+                appPlaceHolder="Selecione o cargo"
+                [appListValue]="[
+                { codigo: 1, descricao: 'Gerente' },
+                { codigo: 2, descricao: 'RH' },
+                { codigo: 3, descricao: 'Admin'},
+                { codigo: 4, descricao: 'Comum'}
+                ]"
+                [appVazio]="true"
+                [control]="colaborador.controls.funcao"
+            >
+            </app-select-option>
             <app-money
                 id="txtSalario"
                 appLabel="Salario"
@@ -260,11 +267,6 @@
                             appPlaceHolder="Insira a seção"
                             [control]="colaborador.controls.tituloEleitor.controls.secao">
                         </app-text-box>
-                    </div>                   
-                </mat-tab>
-                <mat-tab label="Titulo de eleitor">
-                    <div class="responsivo">
-
                     </div>                   
                 </mat-tab>
             </mat-tab-group>

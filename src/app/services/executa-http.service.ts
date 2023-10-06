@@ -19,6 +19,10 @@ export class ExecutaHttpService {
   public executarURLPOST(url: string, object: any): Observable<any>{
     return this.http.post(url, object, { headers: this.headers });
   }
+  
+  public executarURLPUT(url: string, object: any): Observable<any>{
+    return this.http.put(url, object, { headers: this.headers });
+  }
 
   public executarURLDELETE(url: string): Observable<any>{
     return this.http.delete(url, { headers: this.headers });

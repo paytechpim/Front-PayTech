@@ -33,4 +33,13 @@ export class colaboradorService {
         
         return this.http.executarURLPOST(url, colaborador);
     }
+
+    public atualizaColaborador(colaborador: any): Observable<any>{
+        var url = environment.api + 'api/Funcionario/Update';
+
+        colaborador.salario = colaborador.salario == null || colaborador.salario == '' ? 0 : colaborador.salario;
+        colaborador.endereco.numero = colaborador.endereco.numero == null || colaborador.endereco.numero == '' ? 0 : colaborador.endereco.numero;
+       
+        return this.http.executarURLPUT(url, colaborador);
+    }
 }

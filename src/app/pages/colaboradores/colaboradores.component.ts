@@ -15,9 +15,6 @@ import { isEmpty } from 'rxjs';
   styleUrls: ['./colaboradores.component.scss']
 })
 export class ColaboradoresComponent {
-  public usuario: UsuarioModel;
-  public toppingList: string[] = ['Gerente', 'RH', 'Vendedor', 'Esoque'];
-  public usuarios: UsuarioModel[] = [];
 
   disableSalvar: boolean = false;
   disableEditar: boolean = true;
@@ -89,7 +86,6 @@ export class ColaboradoresComponent {
     public dialog: MatDialog,
     ) 
   {
-    this.usuario = new UsuarioModel();
   }
 
   ngOnInit(): void {
@@ -133,13 +129,37 @@ export class ColaboradoresComponent {
   }
 
   public salvarEdição(){
-
+    this.colaboradorService.atualizaColaborador(this.colaborador.value).subscribe(response => {
+      if(response.sucesso){
+        this.colaborador.setValue(response.dados);
+        this.buscouColaborador();
+        const dialogRef = this.dialog.open(DialogInfoComponent, {
+          data: {
+            titulo: "Cadastro atualizado", 
+            descricao: "Cadastro do colaborador " + this.colaborador.controls.id.value + " \n Atualizado com sucesso!",
+            opcao1: "Cadastrar novo",
+            opcao2: "Visualizar"
+          },
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          if(result == 1){
+            this.onLimpar();
+          }
+        });
+      }else{
+        this.colaborador.reset();
+        this._snackBar.open('Ocorreu um erro ao inserir', 'ok', {
+          duration: 10000,
+        });
+      }
+    });
   }
 
   public salvarNovo(){
     this.colaboradorService.inserirColaborador(this.colaborador.value).subscribe(response => {
       if(response.sucesso){
         this.colaborador.setValue(response.dados);
+        this.buscouColaborador();
         const dialogRef = this.dialog.open(DialogInfoComponent, {
           data: {
             titulo: "Cadastro realizado", 
@@ -174,7 +194,7 @@ export class ColaboradoresComponent {
     dialogRef.afterClosed().subscribe(result => {
       if(result == 2){
         this.colaboradorService.deleteColaborador(this.colaborador.controls.id.value).subscribe(response => {
-          //implementar
+          //implementar excluido com sucesso
           this.onLimpar();
         });
 
