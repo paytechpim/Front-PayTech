@@ -1,6 +1,7 @@
 <mat-form-field style="border-radius: 8px;" [ngClass]="appTamanho" appearance="outline">
   <mat-label>{{ appLabel }}</mat-label>
-  <input [(ngModel)]="appModel" (ngModelChange)="alterouModel($event)" autocomplete="off" matInput 
+  <input
+    [(ngModel)]="appModel" (ngModelChange)="alterouModel($event)" autocomplete="off" matInput 
   [placeholder]="appPlaceHolder" [value]="appValue" [disabled]="appDisabled" [required]="appRequired"
   [formControl]="control">
   <mat-error>Campo obrigatório</mat-error>

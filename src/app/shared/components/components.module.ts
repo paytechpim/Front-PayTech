@@ -31,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TextAreaComponent } from './text-area/text-area.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { HudDashboardComponent } from './hud-dashboard/hud-dashboard.component';
+import { DialogInfoComponent } from './dialog-info/dialog-info.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { HudDashboardComponent } from './hud-dashboard/hud-dashboard.component';
         TextAreaComponent,
         ResetPasswordComponent,
         HudDashboardComponent,
+        DialogInfoComponent,
     ],
   imports: [
     CommonModule, 

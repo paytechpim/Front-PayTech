@@ -1,0 +1,20 @@
+<div class="modal" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true" style="display: block;">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="../../../../../assets/logo/Logo_pequena.png" style="max-width: 30px;"/>
+                <h3 style="margin: 0;">{{ data.titulo }}</h3>
+                <button style="border-radius: 100%; padding: 0 6px 0 6px;;" type="button" class="close" data-dismiss="modal" aria-label="Fechar" (click)="closeClick()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center; white-space: pre-wrap;">
+                <h4>{{ data.descricao }}</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" mat-dialog-close="1">{{ data.opcao1 }}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" mat-dialog-close="2">{{ data.opcao2 }}</button>
+            </div>
+        </div>
+    </div>
+</div>

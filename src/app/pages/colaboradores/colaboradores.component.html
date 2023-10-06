@@ -8,24 +8,35 @@
                 id="txtCodigo"
                 appLabel="Código"
                 appPlaceHolder="Insira o código"
-                appTamanho="width-pequeno-medio">
+                appTamanho="width-pequeno-medio"
+                (focusout)="onBuscar();"
+                [control]="colaborador.controls.id">
             </app-text-box>
         </div>
         <div class="responsivo">
             <app-text-box
                 id="txtNome"
                 appLabel="Nome"
-                appPlaceHolder="Insira o nome">
+                appPlaceHolder="Insira o nome"
+                [control]="colaborador.controls.nome">
             </app-text-box>
             <app-cpf-cnpj
                 id="txtCPF"
                 appLabel="CPF"
-                appPlaceHolder="Insira o CPF">
+                appPlaceHolder="Insira o CPF"
+                [control]="colaborador.controls.cpf">
             </app-cpf-cnpj>
+            <app-text-box
+                id="txtRG"
+                appLabel="RG"
+                appPlaceHolder="Insira o RG"
+                [control]="colaborador.controls.rg">
+            </app-text-box>
             <app-date-picker
                 id="txtDtNascimento"
                 appLabel="Data de nascimento"
                 appPlaceHolder="Insira a data de nascimento"
+                [control]="colaborador.controls.dt_nascimento"
             >
             </app-date-picker>
         </div>
@@ -33,21 +44,24 @@
             <app-text-box
                 id="txtNomeMae"
                 appLabel="Nome da mãe"
-                appPlaceHolder="Insira o nome da mãe">
+                appPlaceHolder="Insira o nome da mãe"
+                [control]="colaborador.controls.nome_mae">
             </app-text-box>
             <app-text-box
                 id="txtNomePai"
                 appLabel="Nome do pai"
-                appPlaceHolder="Insira o nome do pai">
+                appPlaceHolder="Insira o nome do pai"
+                [control]="colaborador.controls.nome_pai">
             </app-text-box>
         </div>
         <div class="responsivo">
             <app-select-option
-                id="cbmSexo"
-                appLabel="Sexo"
-                appPlaceHolder="Selecione o sexo"
+                id="cbmGenero"
+                appLabel="Genero"
+                appPlaceHolder="Selecione o Genero"
                 [appListValue]="sexoListValue"
                 [appVazio]="true"
+                [control]="colaborador.controls.genero"
             >
             </app-select-option>
             <app-select-option
@@ -56,43 +70,57 @@
                 appPlaceHolder="Selecione o estado civil"
                 [appListValue]="EstadoCivilListValue"
                 [appVazio]="true"
+                [control]="colaborador.controls.estado_civil"
             >
             </app-select-option>
         </div>
         <div class="responsivo">
             <app-text-box
-                id="txtNascionalidade"
-                appLabel="Nascionalidade"
-                appPlaceHolder="Insira a nascionalidade">
+                id="txtNaturalidade"
+                appLabel="Naturalidade"
+                appPlaceHolder="Insira a Naturalidade"
+                [control]="colaborador.controls.naturalidade">
             </app-text-box>
             <app-text-box
                 id="txtEscolaridade"
                 appLabel="Escolaridade"
-                appPlaceHolder="Insira a escolaridade">
+                appPlaceHolder="Insira a escolaridade"
+                [control]="colaborador.controls.escolaridade">
             </app-text-box>
             <app-select-option-multiple
                 id="cargo"
                 appLabel="Cargo: "
                 appPlaceHolder="Selecione os cargos"
-                [appListValue]="toppingList">
+                [appListValue]="toppingList"
+                >
             </app-select-option-multiple>
             <app-money
                 id="txtSalario"
                 appLabel="Salario"
                 appPlaceHolder="Insira o salario"
+                [control]="colaborador.controls.salario"
                 >
             </app-money>
             <app-date-picker
                 id="dtAdmissao"
                 appLabel="Data de admissão"
                 appPlaceHolder="Insira a data de admissão"
+                [control]="colaborador.controls.dt_admissao"
             >
             </app-date-picker>
-            <app-text-box
-                id="txtRG"
-                appLabel="RG"
-                appPlaceHolder="Insira o RG">
-            </app-text-box>            
+            <app-date-picker
+                id="dtFTGS"
+                appLabel="Data de pagamento FGTS"
+                appPlaceHolder="Insira a data de pagamento do FGTS"
+                [control]="colaborador.controls.dt_FGTS"
+            >
+            </app-date-picker>
+            <app-phone
+                id="txtTelefone"
+                appLabel="Telefone"
+                appPlaceHolder="Insira o telefone"
+                [control]="colaborador.controls.telefone">
+            </app-phone>
         </div>
         <div class="responsivo">
             <mat-tab-group>
@@ -101,27 +129,44 @@
                         <app-text-box
                             id="txtEndereco"
                             appLabel="Endereço"
-                            appPlaceHolder="Insira o endereço">
+                            appPlaceHolder="Insira o endereço"
+                            [control]="colaborador.controls.endereco.controls.rua">
                         </app-text-box>
                         <app-text-box
                             id="txtEnderecoNumero"
                             appLabel="Número"
-                            appPlaceHolder="Insira o número">
+                            appPlaceHolder="Insira o número"
+                            [control]="colaborador.controls.endereco.controls.numero">
                         </app-text-box>
                         <app-cep
                             id="txtCep"
                             appLabel="CEP"
-                            appPlaceHolder="Insira o cep">
+                            appPlaceHolder="Insira o cep"
+                            [control]="colaborador.controls.endereco.controls.cep">
                         </app-cep>
                         <app-text-box
                             id="txtBairro"
                             appLabel="Bairro"
-                            appPlaceHolder="Insira o bairro">
+                            appPlaceHolder="Insira o bairro"
+                            [control]="colaborador.controls.endereco.controls.bairro">
                         </app-text-box>
                         <app-text-box
                             id="txtCidade"
                             appLabel="Cidade"
-                            appPlaceHolder="Insira a cidade">
+                            appPlaceHolder="Insira a cidade"
+                            [control]="colaborador.controls.endereco.controls.cidade">
+                        </app-text-box>
+                        <app-text-box
+                            id="txtUF"
+                            appLabel="UF"
+                            appPlaceHolder="Insira o estado"
+                            [control]="colaborador.controls.endereco.controls.uf">
+                        </app-text-box>
+                        <app-text-box
+                            id="txtComplemento"
+                            appLabel="Complemento"
+                            appPlaceHolder="Insira o complemento"
+                            [control]="colaborador.controls.endereco.controls.complemento">
                         </app-text-box>
                     </div>
                 </mat-tab>
@@ -130,25 +175,29 @@
                         <app-text-box
                             id="txtCNH"
                             appLabel="CNH"
-                            appPlaceHolder="Insira o código da CNH">
+                            appPlaceHolder="Insira o código da CNH"
+                            [control]="colaborador.controls.cnh.controls.num_cnh">
+                        </app-text-box>
+                        <app-text-box
+                            id="txtCategoriaCNH"
+                            appLabel="Categoria"
+                            appPlaceHolder="Insira a categoria da CNH"
+                            [control]="colaborador.controls.cnh.controls.categoria">
                         </app-text-box>
                         <app-date-picker
                             id="dtEmissao"
                             appLabel="Data de emissão"
                             appPlaceHolder="Insira a data de emissão"
+                            [control]="colaborador.controls.cnh.controls.dt_emissao"
                         >
                         </app-date-picker>
                         <app-date-picker
                             id="dtVencimento"
                             appLabel="Data de vencimento"
                             appPlaceHolder="Insira a data de vencimento"
+                            [control]="colaborador.controls.cnh.controls.dt_vencimento"
                         >
                         </app-date-picker>
-                        <app-text-box
-                            id="txtCategoriaCNH"
-                            appLabel="Categoria"
-                            appPlaceHolder="Insira a categoria da CNH">
-                        </app-text-box>
                     </div>
                 </mat-tab>
                 <mat-tab label="Informações trabalhista">
@@ -156,27 +205,38 @@
                         <app-text-box
                             id="txtReservista"
                             appLabel="Número da carteira reservista"
-                            appPlaceHolder="Insira o número da carteira reservista">
+                            appPlaceHolder="Insira o número da carteira reservista"
+                            [control]="colaborador.controls.num_reservista">
                         </app-text-box>
                         <app-text-box
                             id="txtCBO"
                             appLabel="CBO"
-                            appPlaceHolder="Insira o CBO">
-                        </app-text-box>
-                        <app-text-box
-                            id="txtPIS"
-                            appLabel="Número do PIS"
-                            appPlaceHolder="Insira o número do PIS">
+                            appPlaceHolder="Insira o CBO"
+                            [control]="colaborador.controls.carteiraTrabalho.controls.cbo">
                         </app-text-box>
                         <app-text-box
                             id="txtCTPS"
                             appLabel="CTPS"
-                            appPlaceHolder="Insira o CTPS">
+                            appPlaceHolder="Insira o CTPS"
+                            [control]="colaborador.controls.carteiraTrabalho.controls.numCtps">
+                        </app-text-box>
+                        <app-text-box
+                            id="cbmUfCarteira"
+                            appLabel="UF"
+                            appPlaceHolder="Insira o estado que foi cadastrado a carteira"
+                            [control]="colaborador.controls.carteiraTrabalho.controls.ufCarteira">
+                        </app-text-box>
+                        <app-text-box
+                            id="txtOrgaoCarteira"
+                            appLabel="Orgão"
+                            appPlaceHolder="Insira o orgão"
+                            [control]="colaborador.controls.carteiraTrabalho.controls.orgao">
                         </app-text-box>
                         <app-text-box
                             id="txtSerie"
                             appLabel="Série"
-                            appPlaceHolder="Insira a série">
+                            appPlaceHolder="Insira a série"
+                            [control]="colaborador.controls.carteiraTrabalho.controls.serie">
                         </app-text-box>        
                     </div>                   
                 </mat-tab>
@@ -185,17 +245,20 @@
                         <app-text-box
                             id="txtTituloEleitor"
                             appLabel="Título de eleitor"
-                            appPlaceHolder="Insira o titulo de eleitor">
+                            appPlaceHolder="Insira o titulo de eleitor"
+                            [control]="colaborador.controls.tituloEleitor.controls.numero_Titulo">
                         </app-text-box>
                         <app-text-box
                             id="txtZona"
                             appLabel="Zona"
-                            appPlaceHolder="Insira zona">
+                            appPlaceHolder="Insira zona"
+                            [control]="colaborador.controls.tituloEleitor.controls.zona">
                         </app-text-box>
                         <app-text-box
                             id="txtSeção"
                             appLabel="Seção"
-                            appPlaceHolder="Insira a seção">
+                            appPlaceHolder="Insira a seção"
+                            [control]="colaborador.controls.tituloEleitor.controls.secao">
                         </app-text-box>
                     </div>                   
                 </mat-tab>
@@ -207,9 +270,27 @@
             </mat-tab-group>
         </div>
         <div class="responsivo">
-            <button type="button" class="btn btn-success" (click)="onSalvar();">Salvar</button>
-            <button type="button" class="btn btn-light">Editar</button>
-            <button type="button" class="btn btn-danger">Excluir</button>
+            <button 
+                type="button" 
+                class="btn btn-success"
+                [disabled]="disableSalvar"
+                (click)="onSalvar();">
+                Salvar
+            </button>
+            <button 
+                type="button" 
+                class="btn btn-light" 
+                [disabled]="disableEditar"
+                (click)="onEditar();">
+                Editar
+            </button>
+            <button 
+                type="button" 
+                class="btn btn-danger" 
+                [disabled]="disableExcluir"
+                (click)="onExcluir();">
+                Excluir
+            </button>
         </div>
     </div>
 </div>

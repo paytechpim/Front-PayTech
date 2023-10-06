@@ -8,6 +8,8 @@ import { FormControl } from '@angular/forms';
 })
 export class SelectOptionMultipleComponent {
 
+  @Input() control = new FormControl();
+  
   @Input() appModel: string[] = [""];
   @Output() appModelChange = new EventEmitter<string[]>();
   alterouModel(value: string[]){
