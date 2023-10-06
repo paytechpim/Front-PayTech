@@ -37,3 +37,11 @@ button{
 #button_user{
     background-color: #FF6000;
 }
+
+// Responsividade
+
+@media screen and (max-width: 768px) {
+    .dados_empresa {
+        padding: 4px; /* Reduzir o espaçamento para telas menores, se necessário */
+    }
+}
