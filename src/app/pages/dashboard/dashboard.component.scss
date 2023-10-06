@@ -3,3 +3,37 @@
         padding: 4px; /* Reduzir o espaçamento para telas menores, se necessário */
     }
 }
+
+// Style page dashboard
+.hud_dashboard {
+    h4 {
+      display: inline-block;
+      margin-left: 10px;
+    }
+    .h1_hud {
+      text-align: center;
+    }
+    .header_hud{
+      display: flex;
+      justify-content: center;
+    }
+    .body_hud{
+      display: flex;
+      justify-content: center;
+    }
+    .info_hud{
+      background-color: #FF6000;
+      border-radius: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      height: 50vh;
+    }
+    .info_company{
+      color: white;
+      justify-content: space-around;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
