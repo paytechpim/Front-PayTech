@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 import { colaborador } from '@app/models/colaborador.models';
 import { SelectOptionModel } from '@app/models/select-option.models';
 import { UsuarioModel } from '@app/models/usuario';
@@ -84,8 +85,14 @@ export class ColaboradoresComponent {
     private _snackBar: MatSnackBar,
     private colaboradorService: colaboradorService,
     public dialog: MatDialog,
+    private route: ActivatedRoute,
     ) 
   {
+  }
+
+  ngAfterViewInit(){
+    this.colaborador.controls.id.setValue(this.route.snapshot.params['colaborador']);
+    this.onBuscar();
   }
 
   ngOnInit(): void {
@@ -98,8 +105,8 @@ export class ColaboradoresComponent {
   public onBuscar(id?: string) {
     if(this.colaborador.controls.id.value > 0){
       this.colaboradorService.buscarColaborador(this.colaborador.controls.id.value).subscribe(response => {
-        if(response.id > 0){
-          this.colaborador.setValue(response);
+        if(response.dados.id > 0){
+          this.colaborador.setValue(response.dados);
           this.buscouColaborador();
         }else{
           this.onLimpar();
@@ -138,7 +145,9 @@ export class ColaboradoresComponent {
             titulo: "Cadastro atualizado", 
             descricao: "Cadastro do colaborador " + this.colaborador.controls.id.value + " \n Atualizado com sucesso!",
             opcao1: "Cadastrar novo",
-            opcao2: "Visualizar"
+            opcao2: "Visualizar",
+            color1: "btn-light",
+            color2: "btn-primary"
           },
         });
         dialogRef.afterClosed().subscribe(result => {
@@ -165,7 +174,9 @@ export class ColaboradoresComponent {
             titulo: "Cadastro realizado", 
             descricao: "Cadastro do colaborador " + this.colaborador.controls.id.value + " \n Realizado com sucesso!",
             opcao1: "Cadastrar novo",
-            opcao2: "Visualizar"
+            opcao2: "Visualizar",
+            color1: "btn-light",
+            color2: "btn-primary"
           },
         });
         dialogRef.afterClosed().subscribe(result => {
@@ -188,16 +199,25 @@ export class ColaboradoresComponent {
         titulo: "Atenção!", 
         descricao: "Tem certeza que deseja EXLCUIR o colaborador \n" + this.colaborador.controls.id.value + " - " + this.colaborador.controls.nome.value,
         opcao1: "Não",
-        opcao2: "Sim"
+        opcao2: "Sim",
+        color1: "btn-light",
+        color2: "btn-danger"
       },
     });
     dialogRef.afterClosed().subscribe(result => {
       if(result == 2){
         this.colaboradorService.deleteColaborador(this.colaborador.controls.id.value).subscribe(response => {
-          //implementar excluido com sucesso
-          this.onLimpar();
+          if(response.sucesso){
+            this.onLimpar();
+            this._snackBar.open("Colaborador excluído com sucesso", 'ok', {
+              duration: 10000,
+            });
+          }else{
+            this._snackBar.open(response.mensagem, 'ok', {
+              duration: 10000,
+            });
+          }
         });
-
       }
     });
   }
@@ -219,6 +239,7 @@ export class ColaboradoresComponent {
 
   public onLimpar(){
     this.colaborador.reset();
+    this.colaborador.enable()
 
     this.disableSalvar = false;
     this.disableEditar = true;

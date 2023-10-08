@@ -9,8 +9,13 @@ export const MENU_BAR: MenuBar = {
     },
     {
       icon: 'person_add',
-      label: 'Colaboradores',
+      label: 'Cadastro de colaboradores',
       path: 'colaboradores',
+    },
+    {
+      icon: 'assignment_ind',
+      label: 'Lista de colaboradores',
+      path: 'listar-colaboradores',
     },
     {
       icon: 'library_books',

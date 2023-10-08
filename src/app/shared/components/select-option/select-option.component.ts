@@ -8,7 +8,7 @@ import { SelectOptionModel } from 'src/app/models/select-option.models';
   styleUrls: ['./select-option.component.scss']
 })
 export class SelectOptionComponent {
-  @Input() control = new FormControl();
+  @Input() control: FormControl;
 
   @Input() appModel: string = "";
   @Output() appModelChange = new EventEmitter<string>();

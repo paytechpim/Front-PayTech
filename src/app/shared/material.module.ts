@@ -27,6 +27,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CpfPipe } from './pipe/cpf.pipe';
 
 
 @NgModule({
@@ -93,7 +94,8 @@ import { MatNativeDateModule } from '@angular/material/core';
         MatFormFieldModule,
         MatDatepickerModule,
         MatNativeDateModule
-    ]
+    ],
+    
 })
 export class MaterialModule {
 }
