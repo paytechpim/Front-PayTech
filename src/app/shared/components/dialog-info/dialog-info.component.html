@@ -12,8 +12,8 @@
                 <h4>{{ data.descricao }}</h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" mat-dialog-close="1">{{ data.opcao1 }}</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" mat-dialog-close="2">{{ data.opcao2 }}</button>
+                <button type="button" class="btn" [class]="data.color1" data-dismiss="modal" mat-dialog-close="1">{{ data.opcao1 }}</button>
+                <button type="button" class="btn" [class]="data.color2" data-dismiss="modal" mat-dialog-close="2">{{ data.opcao2 }}</button>
             </div>
         </div>
     </div>

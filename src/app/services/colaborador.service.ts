@@ -12,13 +12,27 @@ export class colaboradorService {
 
     constructor(private http: ExecutaHttpService) { }
 
-    public buscarColaborador(id: number): Observable<colaborador>{
+    public buscarColaborador(id: number): Observable<any>{
         var url = environment.api + 'api/Funcionario/GetById' + '?id=' + id;
 
         return this.http.executarURLGet(url);
     }
 
-    public deleteColaborador(id: number): Observable<colaborador>{
+    public buscarColaboradorPorParametro(tipo: string = "", palavraChave: string = ""): Observable<any>{
+        var url: string = "";
+
+        if(tipo == "Código identificador"){
+            url = environment.api + 'api/Funcionario/GetById' + '?id=' + palavraChave;
+        }else if(tipo == "Nome"){
+            url = environment.api + 'api/Funcionario/GetByName' + '?nome=' + palavraChave;
+        }else if(tipo == "CPF"){
+
+        }
+
+        return this.http.executarURLGet(url);
+    }
+
+    public deleteColaborador(id: number): Observable<any>{
         var url = environment.api + 'api/Funcionario/Delete' + '?id=' + id;
 
         return this.http.executarURLDELETE(url);

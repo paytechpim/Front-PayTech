@@ -7,6 +7,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ColaboradoresComponent } from './pages/colaboradores/colaboradores.component';
 import { FolhaPagamentoComponent } from './pages/folha-pagamento/folha-pagamento.component';
 import { DadosEmpresaComponent } from './pages/dados-empresa/dados-empresa.component';
+import { ListarColaboradoresComponent } from './pages/listar-colaboradores/listar-colaboradores.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,14 @@ const routes: Routes = [
       {
         path: 'colaboradores',
         component: ColaboradoresComponent,
+      },
+      {
+        path: 'colaboradores/:colaborador',
+        component: ColaboradoresComponent,
+      },
+      {
+        path: 'listar-colaboradores',
+        component: ListarColaboradoresComponent,
       },
       {
         path: 'folha-pagamento',
