@@ -8,6 +8,7 @@ import { SelectOptionModel } from '@app/models/select-option.models';
 import { UsuarioModel } from '@app/models/usuario';
 import { colaboradorService } from '@app/services/colaborador.service';
 import { DialogInfoComponent } from '@app/shared/components/dialog-info/dialog-info.component';
+import { GerenciadorLoginComponent } from '@app/shared/components/gerenciador-login/gerenciador-login.component';
 import { isEmpty } from 'rxjs';
 
 @Component({
@@ -20,6 +21,8 @@ export class ColaboradoresComponent {
   disableSalvar: boolean = false;
   disableEditar: boolean = true;
   disableExcluir: boolean = true;
+
+  ativaGerenciaLogin: boolean = false;
 
   colaborador = new FormGroup({
     id: new FormControl(),
@@ -234,7 +237,9 @@ export class ColaboradoresComponent {
     this.colaborador.controls.id.enable();
     this.disableSalvar = true;
     this.disableEditar = false;
-    this.disableExcluir = false
+    this.disableExcluir = false;
+
+    this.ativaGerenciaLogin = true;
   }
 
   public onLimpar(){
@@ -244,8 +249,19 @@ export class ColaboradoresComponent {
     this.disableSalvar = false;
     this.disableEditar = true;
     this.disableExcluir = true;
+
+    this.ativaGerenciaLogin = false;
   }
 
   public dialogColaboradorCadastrado(){
+  }
+
+  public gerenciarLogin(){
+    const dialogRef = this.dialog.open(GerenciadorLoginComponent, {
+      data: {
+        colaboradorId: this.colaborador.controls.id.value,
+        nome: this.colaborador.controls.nome.value
+      },
+    });
   }
 }

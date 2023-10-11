@@ -32,6 +32,7 @@ import { TextAreaComponent } from './text-area/text-area.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { HudDashboardComponent } from './hud-dashboard/hud-dashboard.component';
 import { DialogInfoComponent } from './dialog-info/dialog-info.component';
+import { GerenciadorLoginComponent } from './gerenciador-login/gerenciador-login.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { DialogInfoComponent } from './dialog-info/dialog-info.component';
         ResetPasswordComponent,
         HudDashboardComponent,
         DialogInfoComponent,
+        GerenciadorLoginComponent,
     ],
   imports: [
     CommonModule, 
