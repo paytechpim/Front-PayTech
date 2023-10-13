@@ -12,6 +12,14 @@
                 (focusout)="onBuscar();"
                 [control]="colaborador.controls.id">
             </app-text-box>
+            <button 
+                type="button" 
+                class="btn btn-primary width-pequeno-medio"
+                style="height: 55px;"
+                *ngIf="ativaGerenciaLogin"
+                (click)="gerenciarLogin();">
+                Gerenciar login
+            </button>
         </div>
         <div class="responsivo">
             <app-text-box

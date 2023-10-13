@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./folha-pagamento.component.scss']
 })
 export class FolhaPagamentoComponent {
-
+  
 }

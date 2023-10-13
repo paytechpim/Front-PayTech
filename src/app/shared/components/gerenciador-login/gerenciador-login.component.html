@@ -1,0 +1,80 @@
+<div class="modal" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true" style="display: block;">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 800px;" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="../../../../../assets/logo/Logo_pequena.png" style="max-width: 30px;"/>
+                <h3 style="margin: 0;">Gerenciador de login</h3>
+                <button style="border-radius: 100%; padding: 0 6px 0 6px;;" type="button" class="close" data-dismiss="modal" aria-label="Fechar" (click)="closeClick()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Colaborador: {{ data.nome }}</p>
+                <div style="margin-bottom: 10px;">
+                    Ativar login: 
+                    <mat-slide-toggle
+                        class="example-margin"
+                        color="primary"
+                        [formControl]="login.controls.ativo">
+                    </mat-slide-toggle>
+                </div>
+                <div [style.display]="login.controls.ativo.value ? 'block' : 'none'">
+                    <div class="responsivo">
+                        <app-select-option
+                            id="tipoUsuario"
+                            appLabel="Tipo de usuário: "
+                            appPlaceHolder="Selecione o tipo de usuário"
+                            [appListValue]="[
+                            { codigo: 1, descricao: 'Admin' },
+                            { codigo: 2, descricao: 'Comum' },
+                            { codigo: 3, descricao: 'Treinamento'}
+                            ]"
+                            [appVazio]="true"
+                            [control]="login.controls.tipo"
+                        >
+                        </app-select-option>
+                    </div>
+                    <div class="responsivo">
+                        <app-text-box
+                            id="txtNomeUsuario"
+                            appLabel="Nome de usuário"
+                            appPlaceHolder="Insira o nome de usuário"
+                            [control]="login.controls.nome_Usuario">
+                        </app-text-box>
+                    </div>
+                    <div class="responsivo" *ngIf="exibirSenha">
+                        <app-text-box-password
+                            id="txtSenha"
+                            appLabel="Senha"
+                            appPlaceHolder="Digite sua senha"
+                            [control]="login.controls.senha">
+                        </app-text-box-password>
+                        <app-text-box-password
+                            id="txtConfirmSenha"
+                            appLabel="Confirme sua senha"
+                            appPlaceHolder="Confirme sua senha"
+                            [control]="login.controls.confSenha">
+                        </app-text-box-password>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <div>
+                    <button type="button" class="btn btn-light"
+                        (click)="onEditarUserName();">
+                        Editar nome de usuário
+                    </button>
+                    <button type="button" class="btn btn-light" 
+                        *ngIf="!exibirSenha"
+                        (click)="onRedefinirSenha();">
+                        Redefinir senha
+                    </button>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-light" data-dismiss="modal" mat-dialog-close="1">Cancelar</button>
+                    <button type="button" class="btn btn-primary" (click)="onSalvar();">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
