@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
@@ -26,34 +26,34 @@ export class ColaboradoresComponent {
 
   colaborador = new FormGroup({
     id: new FormControl(),
-    nome: new FormControl(),
-    cpf: new FormControl(),
+    nome: new FormControl("", [Validators.required]),
+    cpf: new FormControl("", [Validators.required]),
     rg: new FormControl(),
-    escolaridade: new FormControl(),
+    escolaridade: new FormControl("", [Validators.required]),
     forma_pagamento: new FormControl(),
-    salario: new FormControl(),
+    salario: new FormControl("", [Validators.required]),
     telefone: new FormControl(),
-    genero: new FormControl(),
-    naturalidade: new FormControl(),
+    genero: new FormControl("", [Validators.required]),
+    naturalidade: new FormControl("", [Validators.required]),
     num_reservista: new FormControl(),
-    nome_mae: new FormControl(),
+    nome_mae: new FormControl("", [Validators.required]),
     nome_pai: new FormControl(),
-    dt_admissao: new FormControl(),
-    dt_nascimento: new FormControl(),
-    dt_FGTS: new FormControl(),
-    funcao: new FormControl(),
-    estado_civil: new FormControl(),
+    dt_admissao: new FormControl("", [Validators.required]),
+    dt_nascimento: new FormControl("", [Validators.required]),
+    funcao: new FormControl("", [Validators.required]),
+    estado_civil: new FormControl("", [Validators.required]),
     tituloEleitor: new FormGroup({
       numero_Titulo: new FormControl(),
       secao: new FormControl(),
       zona: new FormControl(),
     }),
     carteiraTrabalho: new FormGroup({
-      numCtps: new FormControl(),
-      ufCarteira: new FormControl(),
-      orgao: new FormControl(),
-      serie: new FormControl(),
-      cbo: new FormControl(),
+      numCtps: new FormControl("", [Validators.required]),
+      ufCarteira: new FormControl("", [Validators.required, Validators.maxLength(2)]),
+      orgao: new FormControl("", [Validators.required]),
+      serie: new FormControl("", [Validators.required]),
+      // Ajustar o pis pois não está funcionando o maxLength 11
+      pis: new FormControl("", [Validators.required, Validators.maxLength(11)]),
     }),
     cnh: new FormGroup({
       num_cnh: new FormControl(),
@@ -62,12 +62,12 @@ export class ColaboradoresComponent {
       dt_vencimento: new FormControl(),
     }),
     endereco: new FormGroup({
-      cep: new FormControl(),
-      rua: new FormControl(),
-      numero: new FormControl(),
-      bairro: new FormControl(),
-      cidade: new FormControl(),
-      uf: new FormControl(),
+      cep: new FormControl("", [Validators.required]),
+      rua: new FormControl("", [Validators.required]),
+      numero: new FormControl("", [Validators.required]),
+      bairro: new FormControl("", [Validators.required]),
+      cidade: new FormControl("", [Validators.required]),
+      uf: new FormControl("", [Validators.required]),
       complemento: new FormControl(),
     })
   });
@@ -81,7 +81,9 @@ export class ColaboradoresComponent {
   EstadoCivilListValue: SelectOptionModel[] = [
     { codigo: 1, descricao: 'Solteiro(a)' },
     { codigo: 2, descricao: 'Casado(a)' },
-    { codigo: 3, descricao: 'Outros' },
+    { codigo: 3, descricao: 'Víuvo(a)'},
+    { codigo: 4, descricao: 'Divorciado(a)'},
+    { codigo: 5, descricao: 'Outros' },
   ];
 
   constructor(
