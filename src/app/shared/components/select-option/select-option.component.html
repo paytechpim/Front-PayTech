@@ -10,4 +10,5 @@
         <mat-option *ngIf="!appVazio"></mat-option>
         <mat-option [value]="item.descricao" *ngFor="let item of appListValue">{{ item.descricao }}</mat-option>
     </mat-select>
+    <mat-error>Campo obrigatório</mat-error>
 </mat-form-field>
