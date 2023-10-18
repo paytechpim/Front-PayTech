@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class FolhaPagamentoComponent {
   
+  constructor(){
+
+  }
+
+  onIniciar(){
+    //implementar pesquisa se a folha de pagamento do mês já foi gerada
+  }
 }
