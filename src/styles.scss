@@ -163,3 +163,8 @@ mat-form-field{
   --bs-link-hover-color:  #fca503 !important;
   --mdc-outlined-text-field-focus-outline-color: #ff8000 !important;
 }
+
+.required:after {
+  content:" *"; 
+  color: red;
+}
