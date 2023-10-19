@@ -14,7 +14,6 @@
         nome_pai: string
         dt_admissao: Date
         dt_nascimento: Date
-        dt_FGTS: Date
         tituloEleitor: TituloEleitor
         carteiraTrabalho: CarteiraTrabalho
         cnh: Cnh
@@ -34,7 +33,7 @@
         ufCarteira: string
         orgao: string
         serie: string
-        cbo: string
+        pis: string
     }
     
     export interface Cnh {

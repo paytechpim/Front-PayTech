@@ -10,7 +10,6 @@
         [placeholder]="appPlaceHolder" 
         [value]="appValue" 
         [disabled]="appDisabled" 
-        [required]="appRequired"
         [matDatepicker]="picker"
         [formControl]="control"
         >
@@ -21,4 +20,5 @@
     <mat-datepicker 
         #picker>
     </mat-datepicker>
+    <mat-error>Campo obrigatório</mat-error>
 </mat-form-field>  

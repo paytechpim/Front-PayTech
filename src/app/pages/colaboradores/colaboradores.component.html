@@ -1,6 +1,7 @@
 <div class="card">
     <div class="card-head">
         <h2 style="margin: 0;">Cadastro de colaboradores</h2>
+        <h5>Campos com asterisco (*) são obrigatórios.</h5>
     </div>
     <div class="card-body">
         <div class="responsivo">
@@ -61,8 +62,6 @@
                 appPlaceHolder="Insira o nome do pai"
                 [control]="colaborador.controls.nome_pai">
             </app-text-box>
-        </div>
-        <div class="responsivo">
             <app-select-option
                 id="cbmGenero"
                 appLabel="Genero"
@@ -89,53 +88,34 @@
                 appPlaceHolder="Insira a Naturalidade"
                 [control]="colaborador.controls.naturalidade">
             </app-text-box>
-            <app-text-box
+            <app-select-option
                 id="txtEscolaridade"
                 appLabel="Escolaridade"
-                appPlaceHolder="Insira a escolaridade"
-                [control]="colaborador.controls.escolaridade">
-            </app-text-box>
-            <app-select-option
-                id="cargo"
-                appLabel="Cargo: "
-                appPlaceHolder="Selecione o cargo"
+                appPlaceHolder="Selecione a escolaridade"
                 [appListValue]="[
-                { codigo: 1, descricao: 'Gerente' },
-                { codigo: 2, descricao: 'RH' },
-                { codigo: 3, descricao: 'Admin'},
-                { codigo: 4, descricao: 'Comum'}
+                { codigo: 1, descricao: 'Analfabeto' },
+                { codigo: 2, descricao: 'Ensino fundamental incompleto' },
+                { codigo: 3, descricao: 'Ensino fundamental completo'},
+                { codigo: 4, descricao: 'Ensino médio incompleto'},
+                { codigo: 5, descricao: 'Ensino médio completo'},
+                { codigo: 6, descricao: 'Ensino superior incompleto'},
+                { codigo: 7, descricao: 'Ensino superior completo'}
                 ]"
                 [appVazio]="true"
-                [control]="colaborador.controls.funcao"
-            >
+                [control]="colaborador.controls.escolaridade">
             </app-select-option>
-            <app-money
-                id="txtSalario"
-                appLabel="Salario"
-                appPlaceHolder="Insira o salario"
-                [control]="colaborador.controls.salario"
-                >
-            </app-money>
-            <app-date-picker
-                id="dtAdmissao"
-                appLabel="Data de admissão"
-                appPlaceHolder="Insira a data de admissão"
-                [control]="colaborador.controls.dt_admissao"
-            >
-            </app-date-picker>
-            <app-date-picker
-                id="dtFTGS"
-                appLabel="Data de pagamento FGTS"
-                appPlaceHolder="Insira a data de pagamento do FGTS"
-                [control]="colaborador.controls.dt_FGTS"
-            >
-            </app-date-picker>
             <app-phone
                 id="txtTelefone"
                 appLabel="Telefone"
                 appPlaceHolder="Insira o telefone"
                 [control]="colaborador.controls.telefone">
             </app-phone>
+            <app-text-box
+                id="txtReservista"
+                appLabel="Número da carteira reservista"
+                appPlaceHolder="Insira o número da carteira reservista"
+                [control]="colaborador.controls.num_reservista">
+            </app-text-box>
         </div>
         <div class="responsivo">
             <mat-tab-group>
@@ -159,6 +139,8 @@
                             appPlaceHolder="Insira o cep"
                             [control]="colaborador.controls.endereco.controls.cep">
                         </app-cep>
+                    </div>
+                    <div class="responsivo">
                         <app-text-box
                             id="txtBairro"
                             appLabel="Bairro"
@@ -175,7 +157,8 @@
                             id="txtUF"
                             appLabel="UF"
                             appPlaceHolder="Insira o estado"
-                            [control]="colaborador.controls.endereco.controls.uf">
+                            [control]="colaborador.controls.endereco.controls.uf"
+                            appMaxLength="2">
                         </app-text-box>
                         <app-text-box
                             id="txtComplemento"
@@ -218,41 +201,90 @@
                 <mat-tab label="Informações trabalhista">
                     <div class="responsivo"  style="margin-top: 15px;">
                         <app-text-box
-                            id="txtReservista"
-                            appLabel="Número da carteira reservista"
-                            appPlaceHolder="Insira o número da carteira reservista"
-                            [control]="colaborador.controls.num_reservista">
-                        </app-text-box>
-                        <app-text-box
-                            id="txtCBO"
-                            appLabel="CBO"
-                            appPlaceHolder="Insira o CBO"
-                            [control]="colaborador.controls.carteiraTrabalho.controls.cbo">
+                            id="txtPIS"
+                            appLabel="PIS"
+                            appPlaceHolder="Insira o PIS"
+                            [control]="colaborador.controls.informacoesTrabalhistas.controls.num_pis"
+                            >
                         </app-text-box>
                         <app-text-box
                             id="txtCTPS"
                             appLabel="CTPS"
-                            appPlaceHolder="Insira o CTPS"
-                            [control]="colaborador.controls.carteiraTrabalho.controls.numCtps">
+                            appPlaceHolder="Insira o CTPS da carteira de trabalho"
+                            [control]="colaborador.controls.informacoesTrabalhistas.controls.numCtps"
+                            >
                         </app-text-box>
                         <app-text-box
                             id="cbmUfCarteira"
                             appLabel="UF"
-                            appPlaceHolder="Insira o estado que foi cadastrado a carteira"
-                            [control]="colaborador.controls.carteiraTrabalho.controls.ufCarteira">
+                            appPlaceHolder="Insira o estado que foi cadastrado a carteira de trabalho"
+                            [control]="colaborador.controls.informacoesTrabalhistas.controls.ufCarteira"
+                            appMaxLength="2"
+                            >
                         </app-text-box>
                         <app-text-box
                             id="txtOrgaoCarteira"
                             appLabel="Orgão"
-                            appPlaceHolder="Insira o orgão"
-                            [control]="colaborador.controls.carteiraTrabalho.controls.orgao">
+                            appPlaceHolder="Insira o orgão da carteira de trabalho"
+                            [control]="colaborador.controls.informacoesTrabalhistas.controls.orgao"
+                            >
                         </app-text-box>
                         <app-text-box
                             id="txtSerie"
                             appLabel="Série"
-                            appPlaceHolder="Insira a série"
-                            [control]="colaborador.controls.carteiraTrabalho.controls.serie">
-                        </app-text-box>        
+                            appPlaceHolder="Insira a série da carteira de trabalho"
+                            [control]="colaborador.controls.informacoesTrabalhistas.controls.serie"
+                            >
+                        </app-text-box>
+                    </div>
+                    <div class="responsivo">
+                        <app-date-picker
+                            id="dtAdmissao"
+                            appLabel="Data de admissão"
+                            appPlaceHolder="Insira a data de admissão"
+                            [control]="colaborador.controls.informacoesTrabalhistas.controls.dt_admissao"
+                        >
+                        </app-date-picker>
+                        <app-money
+                            id="txtSalario"
+                            appLabel="Salario bruto"
+                            appPlaceHolder="Insira o salario"
+                            [control]="colaborador.controls.informacoesTrabalhistas.controls.salario_Bruto"
+                            >
+                        </app-money>
+                        <app-text-box
+                            id="txtQtdDependentes"
+                            appLabel="Quantidade de dependentes"
+                            appPlaceHolder="Insira a quantidade de dependnetes do colaborador"
+                            [control]="colaborador.controls.informacoesTrabalhistas.controls.qtd_Dependentes"
+                            >
+                        </app-text-box>
+                        <app-select-option
+                            id="comboOptValeTransporte"
+                            appLabel="Optante vale transporte"
+                            appPlaceHolder="Selecione o sim ou não"
+                            [appListValue]="[
+                            { codigo: 1, descricao: 'Não' },
+                            { codigo: 2, descricao: 'Sim' },
+                            ]"
+                            [appVazio]="true"
+                            [control]="colaborador.controls.informacoesTrabalhistas.controls.opt_Vale_Transporte"
+                            >
+                        </app-select-option>
+                        <app-select-option
+                            id="cargo"
+                            appLabel="Cargo "
+                            appPlaceHolder="Selecione o cargo"
+                            [appListValue]="[
+                            { codigo: 1, descricao: 'Gerente' },
+                            { codigo: 2, descricao: 'RH' },
+                            { codigo: 3, descricao: 'Admin'},
+                            { codigo: 4, descricao: 'Comum'}
+                            ]"
+                            [appVazio]="true"
+                            [control]="colaborador.controls.informacoesTrabalhistas.controls.funcao"
+                            >
+                        </app-select-option>
                     </div>                   
                 </mat-tab>
                 <mat-tab label="Titulo de eleitor">

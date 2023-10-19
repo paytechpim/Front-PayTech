@@ -2,8 +2,8 @@
   <mat-label>{{ appLabel }}</mat-label>
   <input
     [(ngModel)]="appModel" (ngModelChange)="alterouModel($event)" autocomplete="off" matInput 
-  [placeholder]="appPlaceHolder" [value]="appValue" [disabled]="appDisabled" [required]="appRequired"
-  [formControl]="control">
+  [placeholder]="appPlaceHolder" [value]="appValue" [disabled]="appDisabled"
+  [formControl]="control" [maxLength]="appMaxLength">
   <mat-error>Campo obrigatório</mat-error>
 </mat-form-field>
 <!-- <mat-form-field appearance="outline">

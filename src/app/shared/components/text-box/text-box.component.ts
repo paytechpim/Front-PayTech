@@ -21,6 +21,7 @@ export class TextBoxComponent {
   @Input() appTamanho: string = "";
   @Input() appDisabled: boolean = false;
   @Input() appRequired: boolean = false;
+  @Input() appMaxLength: string = "255";
 
   constructor() { }
 
