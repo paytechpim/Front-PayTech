@@ -53,7 +53,7 @@ export class ColaboradoresComponent {
       dt_admissao: new FormControl("", [Validators.required]),
       salario_Bruto: new FormControl("", [Validators.required]),
       qtd_Dependentes: new FormControl("", [Validators.required]),
-      opt_Vale_Transporte: new FormControl("Não", [Validators.required]),
+      opt_Vale_Transporte: new FormControl("0", [Validators.required]),
       funcao: new FormControl("", [Validators.required]),
     }),
     cnh: new FormGroup({

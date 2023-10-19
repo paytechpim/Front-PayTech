@@ -42,7 +42,8 @@ export class colaboradorService {
         var url = environment.api + 'api/Funcionario/Insert';
 
         colaborador.id = colaborador.id == null || colaborador.id == '' ? 0 : colaborador.id;
-        colaborador.salario = colaborador.salario == null || colaborador.salario == '' ? 0 : colaborador.salario;
+        colaborador.informacoesTrabalhistas.id = colaborador.informacoesTrabalhistas.id == null || colaborador.informacoesTrabalhistas.id == '' ? 0 : colaborador.informacoesTrabalhistas.id;
+        colaborador.informacoesTrabalhistas.salario_Bruto = colaborador.informacoesTrabalhistas.salario_Bruto == null || colaborador.informacoesTrabalhistas.salario_Bruto == '' ? 0 : colaborador.informacoesTrabalhistas.salario_Bruto;
         colaborador.endereco.numero = colaborador.endereco.numero == null || colaborador.endereco.numero == '' ? 0 : colaborador.endereco.numero;
         
         return this.http.executarURLPOST(url, colaborador);

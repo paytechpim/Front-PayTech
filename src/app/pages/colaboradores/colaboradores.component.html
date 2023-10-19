@@ -264,8 +264,8 @@
                             appLabel="Optante vale transporte"
                             appPlaceHolder="Selecione o sim ou não"
                             [appListValue]="[
-                            { codigo: 1, descricao: 'Não' },
-                            { codigo: 2, descricao: 'Sim' },
+                            { codigo: false, descricao: 'Não' },
+                            { codigo: true, descricao: 'Sim' },
                             ]"
                             [appVazio]="true"
                             [control]="colaborador.controls.informacoesTrabalhistas.controls.opt_Vale_Transporte"

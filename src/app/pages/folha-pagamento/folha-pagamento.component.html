@@ -4,50 +4,62 @@
     </div>
     <div class="card-body">
         <div class="responsivo">
-            <app-text-box
+            <!-- <app-text-box
                 id="txtCodigo"
-                appLabel="Código"
-                appPlaceHolder="Insira o código"
-                appTamanho="width-pequeno-medio">
-            </app-text-box>
+                appLabel="Código do holerite"
+                appPlaceHolder="Insira o código do holerite para buscar"
+                appTamanho="width-pequeno-medio"
+                [control]="holerite.controls.id">
+            </app-text-box> -->
         </div>
         <div class="responsivo">
             <app-text-box
                 id="txtCodigoColaborador"
                 appLabel="Código do colaborador"
-                appPlaceHolder="Insira o código do colaborador">
+                appPlaceHolder="Insira o código do colaborador"
+                [control]="holerite.controls.id_colaborador">
             </app-text-box>
             <app-date-picker
-                id="txtDtReferente"
-                appLabel="Data de referente ao pagamento"
-                appPlaceHolder="Insira a data referente ao pagamento"
+                id="txtDtCompetencia"
+                appLabel="Data de competência do pagamento"
+                appPlaceHolder="Insira a data competência do pagamento"
+                [control]="holerite.controls.data_competencia"
             >
             </app-date-picker>
-            <button 
-                type="button" 
-                class="btn btn-primary width-pequeno-medio"
-                style="height: 55px;"
-                (click)="onIniciar();">
-                Iniciar
-            </button>
+            <app-text-box
+                id="txtValorValeTransporte"
+                appLabel="Valor do vale transporte"
+                appPlaceHolder="Insira o valor do vale transporte"
+                [control]="holerite.controls.vale_transporte">
+            </app-text-box>
         </div>
         <div class="border">
             <div class="responsivo">
                 <app-text-box
-                    id="txtQtdDiasFaltas"
-                    appLabel="Quantidade de faltas"
-                    appPlaceHolder="Insira a quantidade de faltas em dias">
+                    id="txtQtdHorasFaltas"
+                    appLabel="Quantidade de horas de falta"
+                    appPlaceHolder="Insira a quantidade de faltas em horas"
+                    [control]="holerite.controls.horas_faltas">
                 </app-text-box>
                 <app-text-box
                     id="txtQtdHoraExtra"
                     appLabel="Quantidade horas extra"
-                    appPlaceHolder="Insira a quantidade de horas extras">
+                    appPlaceHolder="Insira a quantidade de horas extras"
+                    [control]="holerite.controls.horas_extra">
                 </app-text-box>
-                <app-text-box
+                <app-number-box
                     id="txtPercentualHoraExtra"
-                    appLabel="Porcentual horas extra"
-                    appPlaceHolder="Insira o porcentual de valor da horas extras">
-                </app-text-box>
+                    appLabel="Porcentual de horas extra"
+                    appPlaceHolder="Insira o porcentual de valor da horas extras"
+                    [control]="holerite.controls.porcentagem_horas_extra">
+                </app-number-box>
+                <button 
+                    type="button" 
+                    class="btn btn-primary width-pequeno-medio"
+                    style="height: 55px;"
+                    (click)="onIniciar();">
+                    Gerar
+                </button>
             </div>
         </div>
     </div>

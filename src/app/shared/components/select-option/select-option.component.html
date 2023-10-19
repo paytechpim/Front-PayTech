@@ -8,7 +8,7 @@
         (selectionChange)="onChangeSelect()"
         [formControl]="control">
         <mat-option *ngIf="!appVazio"></mat-option>
-        <mat-option [value]="item.descricao" *ngFor="let item of appListValue">{{ item.descricao }}</mat-option>
+        <mat-option [value]="item.codigo" *ngFor="let item of appListValue">{{ item.descricao }}</mat-option>
     </mat-select>
     <mat-error>Campo obrigatório</mat-error>
 </mat-form-field>

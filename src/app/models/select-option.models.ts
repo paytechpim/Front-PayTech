@@ -1,4 +1,4 @@
 export class SelectOptionModel {
-    codigo: number;
+    codigo: any;
     descricao: string;
 }
