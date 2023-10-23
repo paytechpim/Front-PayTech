@@ -1,0 +1,11 @@
+<mat-form-field style="border-radius: 8px;" [ngClass]="appTamanho" appearance="outline">
+    <mat-label>{{ appLabel }}</mat-label>
+    <mat-date-range-input [formGroup]="formGroupData" [rangePicker]="picker">
+        <input matStartDate formControlName="inicio" placeholder="Data início">
+        <input matEndDate formControlName="fim" placeholder="Data final">
+    </mat-date-range-input>
+    <mat-hint>DD/MM/YYYY – DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+</mat-form-field>
+  

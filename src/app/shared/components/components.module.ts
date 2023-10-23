@@ -33,6 +33,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { HudDashboardComponent } from './hud-dashboard/hud-dashboard.component';
 import { DialogInfoComponent } from './dialog-info/dialog-info.component';
 import { GerenciadorLoginComponent } from './gerenciador-login/gerenciador-login.component';
+import { DataPickerRangeComponent } from './data-picker-range/data-picker-range.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { GerenciadorLoginComponent } from './gerenciador-login/gerenciador-login
         HudDashboardComponent,
         DialogInfoComponent,
         GerenciadorLoginComponent,
+        DataPickerRangeComponent,
     ],
   imports: [
     CommonModule, 
@@ -93,6 +95,7 @@ import { GerenciadorLoginComponent } from './gerenciador-login/gerenciador-login
     ColorComponent,
     AutocompleteComponent,
     TextAreaComponent,
+    DataPickerRangeComponent,
   ],
   bootstrap: [],
 })

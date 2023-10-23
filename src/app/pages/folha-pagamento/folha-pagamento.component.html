@@ -17,50 +17,70 @@
                 id="txtCodigoColaborador"
                 appLabel="Código do colaborador"
                 appPlaceHolder="Insira o código do colaborador"
-                [control]="holerite.controls.id_colaborador">
+                [control]="holerite.controls.id_colaborador"
+                (focusout)="onBuscar();">
             </app-text-box>
-            <app-date-picker
-                id="txtDtCompetencia"
-                appLabel="Data de competência do pagamento"
-                appPlaceHolder="Insira a data competência do pagamento"
-                [control]="holerite.controls.data_competencia"
-            >
-            </app-date-picker>
-            <app-text-box
+            <div style="margin-top: 20px;">
+                {{ nome }}
+            </div>
+        </div>
+        <app-data-picker-range
+            id="txtDtCompetencia"
+            appLabel="Data de competência"
+            appPlaceHolder="Insira a data competência do pagamento"
+            [formGroupData]="holerite.controls.data"
+            appTamanho="width-medio"
+        >
+        </app-data-picker-range>
+        <div class="responsivo">
+            <app-money
                 id="txtValorValeTransporte"
                 appLabel="Valor do vale transporte"
                 appPlaceHolder="Insira o valor do vale transporte"
-                [control]="holerite.controls.vale_transporte">
-            </app-text-box>
+                [control]="holerite.controls.vale_transporte"
+                appTamanho="width-medio"
+                >
+            </app-money>
         </div>
-        <div class="border">
-            <div class="responsivo">
-                <app-text-box
-                    id="txtQtdHorasFaltas"
-                    appLabel="Quantidade de horas de falta"
-                    appPlaceHolder="Insira a quantidade de faltas em horas"
-                    [control]="holerite.controls.horas_faltas">
-                </app-text-box>
-                <app-text-box
-                    id="txtQtdHoraExtra"
-                    appLabel="Quantidade horas extra"
-                    appPlaceHolder="Insira a quantidade de horas extras"
-                    [control]="holerite.controls.horas_extra">
-                </app-text-box>
-                <app-number-box
-                    id="txtPercentualHoraExtra"
-                    appLabel="Porcentual de horas extra"
-                    appPlaceHolder="Insira o porcentual de valor da horas extras"
-                    [control]="holerite.controls.porcentagem_horas_extra">
-                </app-number-box>
-                <button 
-                    type="button" 
-                    class="btn btn-primary width-pequeno-medio"
-                    style="height: 55px;"
-                    (click)="onIniciar();">
-                    Gerar
-                </button>
-            </div>
+        <div class="responsivo">
+            <app-text-box
+                id="txtQtdHorasFaltas"
+                appLabel="Quantidade de horas de falta"
+                appPlaceHolder="Insira a quantidade de faltas em horas"
+                [control]="holerite.controls.horas_faltas"
+                >
+            </app-text-box>
+            <app-text-box
+                id="txtQtdHoraExtra"
+                appLabel="Quantidade horas extra"
+                appPlaceHolder="Insira a quantidade de horas extras"
+                [control]="holerite.controls.horas_extra"
+                >
+            </app-text-box>
+            <app-number-box
+                id="txtPercentualHoraExtra"
+                appLabel="Porcentual de horas extra"
+                appPlaceHolder="Insira o porcentual de valor da horas extras"
+                [control]="holerite.controls.porcentagem_horas_extra"
+                >
+            </app-number-box>
+           
+        </div>
+        <div class="modal-footer">
+            <button 
+                type="button" 
+                class="btn btn-primary width-pequeno-medio"
+                style="height: 55px; width: 200px;"
+                (click)="onIniciar();">
+                Gerar
+            </button>
+             <!-- <button 
+                type="button" 
+                class="btn btn-primary width-pequeno-medio"
+                style="height: 55px;"
+                (click)="onDownloadExcel(2);">
+                Download
+            </button> -->
         </div>
     </div>
 </div>
