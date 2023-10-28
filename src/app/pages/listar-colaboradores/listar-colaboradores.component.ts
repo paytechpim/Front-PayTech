@@ -59,7 +59,13 @@ export class ListarColaboradoresComponent {
 
     this.colaboradorService.buscarColaboradorPorParametro("" + this.formulario.controls.tipoPesquisa.value, "" + this.formulario.controls.palavraChave.value).subscribe(response => {
       if(response.sucesso){
-        this.dataSource.data = response.dados;
+        if(this.formulario.controls.tipoPesquisa.value?.toLocaleLowerCase() == "ID".toLocaleLowerCase()){
+          var array = [];
+          array.push(response.dados)
+          this.dataSource.data = array; 
+        }else{
+          this.dataSource.data = response.dados;
+        }
       }else{
         this._snackBar.open(response.mensagem, 'ok', {
           duration: 10000,
