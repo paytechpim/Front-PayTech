@@ -2,6 +2,10 @@
 
 Este é o README para o Projeto AngularJS. Este arquivo fornece instruções para a instalação e configuração do projeto em sua máquina local.
 
+## Link do site
+
+[PayTech](https://delightful-dune-03402a110.3.azurestaticapps.net)
+
 ## Requisitos
 
 Antes de iniciar a instalação, verifique se você atende aos seguintes requisitos:
