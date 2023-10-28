@@ -11,9 +11,9 @@
                         appLabel="Tipo de busca"
                         appPlaceHolder="Selecione o tipo de busca"
                         [appListValue]="[
-                        { codigo: 1, descricao: 'Código identificador' },
-                        { codigo: 2, descricao: 'Nome' },
-                        { codigo: 3, descricao: 'CPF' },
+                        { codigo: 'ID', descricao: 'Código identificador' },
+                        { codigo: 'Nome', descricao: 'Nome' },
+                        { codigo: 'CPF', descricao: 'CPF' },
                         ]"
                         [appVazio]="true"
                         [control]="formulario.controls.tipoPesquisa"
@@ -56,11 +56,11 @@
                     </ng-container>
                     <ng-container matColumnDef="dt_admissao">
                         <th mat-header-cell *matHeaderCellDef>Data de admissão</th>
-                        <td mat-cell *matCellDef="let element"> {{ element.dt_admissao | sqldata }} </td>
+                        <td mat-cell *matCellDef="let element"> {{ element.informacoesTrabalhistas.dt_admissao | sqldata }} </td>
                     </ng-container>
                     <ng-container matColumnDef="salario">
                         <th mat-header-cell *matHeaderCellDef>Salário</th>
-                        <td mat-cell *matCellDef="let element"> R$ {{ element.salario}} </td>
+                        <td mat-cell *matCellDef="let element"> R$ {{ element.informacoesTrabalhistas.salario_Bruto}} </td>
                     </ng-container>
                     <ng-container matColumnDef="acao" stickyEnd>
                         <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>

@@ -21,11 +21,11 @@ export class colaboradorService {
     public buscarColaboradorPorParametro(tipo: string = "", palavraChave: string = ""): Observable<any>{
         var url: string = "";
 
-        if(tipo == "Código identificador"){
+        if(tipo.toLocaleLowerCase() == "ID".toLocaleLowerCase()){
             url = environment.api + 'api/Funcionario/GetById' + '?id=' + palavraChave;
-        }else if(tipo == "Nome"){
+        }else if(tipo.toLocaleLowerCase() == "Nome".toLocaleLowerCase()){
             url = environment.api + 'api/Funcionario/GetByName' + '?nome=' + palavraChave;
-        }else if(tipo == "CPF"){
+        }else if(tipo.toLocaleLowerCase() == "CPF".toLocaleLowerCase()){
 
         }
 
