@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
   // api base
-  api: 'https://localhost:7133/',
+  api: 'https://paytech-api.azurewebsites.net/',
 };
