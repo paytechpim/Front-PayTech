@@ -17,30 +17,43 @@ export class SignupPage {
   carregando: boolean = false;
   exibirModalDeErro: boolean = false;
   telaPrincipal = "admin/dashboard";
-
+  
   constructor(private authService: AuthService, private router: Router, public dialog: MatDialog) { }
-
+  
   ngOnInit() {
     if(this.authService.autenticado()){
       this.router.navigateByUrl('/' + this.telaPrincipal);
     }
   }
-
-  open(){
-    if (this.usuario == "" || this.senha == ""){
+  
+  open() {
+    if (this.usuario === "" || this.senha === "") {
       this.selecionaTituloErro("");
       return;
     }
-
     this.loginAutenticaModel = new LoginAutenticaModel(this.usuario, this.senha);
-
+    const overlay = document.querySelector('.overlay') as HTMLElement;
+    if (overlay) {
+      overlay.style.display = 'flex';
+    }
     this.carregando = true;
-    this.authService.autenticar(this.loginAutenticaModel).subscribe(retorno => {
-      this.sucesso(retorno);
-    }, retornoError => {
-      this.falha(retornoError);
-    });
+    setTimeout(() => {
+      this.authService.autenticar(this.loginAutenticaModel).subscribe(
+        (retorno) => {
+          this.sucesso(retorno);
+        },
+        (retornoError) => {
+          this.falha(retornoError);
+        }
+      );
+      if (overlay) {
+        overlay.style.display = 'none';
+      }
+    }, 7000);
   }
+    
+  
+  
 
   resetPassword(){
     const dialogRef = this.dialog.open(ResetPasswordComponent);
@@ -48,6 +61,10 @@ export class SignupPage {
   private sucesso(retorno: any) {
     this.obtemDadosRetorno(retorno);
     this.router.navigateByUrl('/' + this.telaPrincipal);
+    const loadingGif = document.getElementById("loading-gif");
+    if (loadingGif) {
+      loadingGif.classList.add("hidden");
+    }
   }
 
   private obtemDadosRetorno(retorno: any) {
@@ -63,6 +80,10 @@ export class SignupPage {
     this.selecionaTituloErro(retorno);
     this.mostrarModalDeErro();
     this.carregando = false;
+    const loadingGif = document.getElementById("loading-gif");
+    if (loadingGif) {
+      loadingGif.classList.add("hidden");
+    }
   }
 
   private selecionaTituloErro(retorno: any) {

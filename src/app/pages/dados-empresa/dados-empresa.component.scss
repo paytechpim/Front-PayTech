@@ -31,11 +31,14 @@ button{
     border: none;
 }
 .hud_dados {
-    background-color: #454545;
+    // background-color: #454545;
     border-radius: 30px;
 }
 #button_user{
     background-color: #FF6000;
+}
+#bt_edit{
+    background-color: gray;
 }
 
 // Responsividade
