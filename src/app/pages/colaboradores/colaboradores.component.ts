@@ -74,17 +74,17 @@ export class ColaboradoresComponent {
   });
 
   sexoListValue: SelectOptionModel[] = [
-    { codigo: 1, descricao: 'Masculino' },
-    { codigo: 2, descricao: 'Feminino' },
-    { codigo: 3, descricao: 'Outros' },
+    { codigo: "1", descricao: 'Masculino' },
+    { codigo: "2", descricao: 'Feminino' },
+    { codigo: "3", descricao: 'Outros' },
   ];
 
   EstadoCivilListValue: SelectOptionModel[] = [
-    { codigo: 1, descricao: 'Solteiro(a)' },
-    { codigo: 2, descricao: 'Casado(a)' },
-    { codigo: 3, descricao: 'Víuvo(a)'},
-    { codigo: 4, descricao: 'Divorciado(a)'},
-    { codigo: 5, descricao: 'Outros' },
+    { codigo: "1", descricao: 'Solteiro(a)' },
+    { codigo: "2", descricao: 'Casado(a)' },
+    { codigo: "3", descricao: 'Víuvo(a)'},
+    { codigo: "4", descricao: 'Divorciado(a)'},
+    { codigo: "5", descricao: 'Outros' },
   ];
 
   constructor(
