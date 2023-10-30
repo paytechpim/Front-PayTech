@@ -32,24 +32,15 @@ export class SignupPage {
       return;
     }
     this.loginAutenticaModel = new LoginAutenticaModel(this.usuario, this.senha);
-    const overlay = document.querySelector('.overlay') as HTMLElement;
-    if (overlay) {
-      overlay.style.display = 'flex';
-    }
     this.carregando = true;
-    setTimeout(() => {
-      this.authService.autenticar(this.loginAutenticaModel).subscribe(
-        (retorno) => {
-          this.sucesso(retorno);
-        },
-        (retornoError) => {
-          this.falha(retornoError);
-        }
-      );
-      if (overlay) {
-        overlay.style.display = 'none';
+    this.authService.autenticar(this.loginAutenticaModel).subscribe(
+      (retorno) => {
+        this.sucesso(retorno);
+      },
+      (retornoError) => {
+        this.falha(retornoError);
       }
-    }, 7000);
+    );
   }
     
   
@@ -60,11 +51,8 @@ export class SignupPage {
   }
   private sucesso(retorno: any) {
     this.obtemDadosRetorno(retorno);
+    this.carregando = false;
     this.router.navigateByUrl('/' + this.telaPrincipal);
-    const loadingGif = document.getElementById("loading-gif");
-    if (loadingGif) {
-      loadingGif.classList.add("hidden");
-    }
   }
 
   private obtemDadosRetorno(retorno: any) {
@@ -80,10 +68,6 @@ export class SignupPage {
     this.selecionaTituloErro(retorno);
     this.mostrarModalDeErro();
     this.carregando = false;
-    const loadingGif = document.getElementById("loading-gif");
-    if (loadingGif) {
-      loadingGif.classList.add("hidden");
-    }
   }
 
   private selecionaTituloErro(retorno: any) {

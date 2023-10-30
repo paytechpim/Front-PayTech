@@ -34,7 +34,7 @@
                   appTamanho="width-medio"
                   appText="Entrar"> 
               </app-button>
-              <div class="overlay">
+              <div class="overlay" *ngIf="carregando" >
                 <img id="loading-gif" src="../../../../../assets/loading/logoanimadaGif.gif" alt="Carregando..." class="centered" />
               </div>              
           </div>
