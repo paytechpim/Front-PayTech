@@ -21,7 +21,8 @@ export class GerenciadorLoginComponent {
     senha: new FormControl('', Validators.compose([Validators.required, this.customValidator.patternValidator()])),
     confSenha: new FormControl('', Validators.required),
     tipo: new FormControl(''),
-    data_Cadastro: new FormControl('')
+    data_Cadastro: new FormControl(''),
+    data_ultima_alteracao_senha: new FormControl(''),
   });
 
   exibirSenha: boolean = false;
@@ -61,6 +62,7 @@ export class GerenciadorLoginComponent {
         if(response.dados){
           response.dados.confSenha = "";
           response.dados.senha = "";
+          response.dados.data_ultima_alteracao_senha = response.dados.data_ultima_alteracao_senha ?? "";
           this.login.setValue(response.dados);
           this.loginExistente(true);
         }else{

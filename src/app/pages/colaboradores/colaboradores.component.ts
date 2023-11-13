@@ -162,7 +162,7 @@ export class ColaboradoresComponent {
           }
         });
       }else{
-        this.colaborador.reset();
+        this.onLimpar();
         this._snackBar.open('Ocorreu um erro ao inserir', 'ok', {
           duration: 10000,
         });
@@ -191,7 +191,7 @@ export class ColaboradoresComponent {
           }
         });
       }else{
-        this.colaborador.reset();
+        this.onLimpar();
         this._snackBar.open('Ocorreu um erro ao inserir', 'ok', {
           duration: 10000,
         });
@@ -219,6 +219,7 @@ export class ColaboradoresComponent {
               duration: 10000,
             });
           }else{
+            this.onLimpar();
             this._snackBar.open(response.mensagem, 'ok', {
               duration: 10000,
             });

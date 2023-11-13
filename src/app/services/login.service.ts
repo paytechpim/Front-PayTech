@@ -25,6 +25,10 @@ export class LoginService {
   public inserirLogin(login: any): Observable<any>{
     var url = environment.api + 'api/Login';
 
+    login.id = login.id ?? 0;
+    login.data_Cadastro = null;
+    login.Data_ultima_alteracao_senha = null;
+    
     return this.http.executarURLPOST(url, login);
   }
 
